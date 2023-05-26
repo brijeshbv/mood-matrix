@@ -16,6 +16,10 @@ export const siteConfig = {
     {
       title: "Docs",
       href: "/docs",
+      },
+      {
+      title: "Summary",
+      href: "/summary",
     },
     {
       title: "Users",
@@ -24,6 +28,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/brijeshbv/mood-matrix",
-    docs: "/docs",
+    docs: "/summary",
   },
 }
