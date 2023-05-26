@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from matrix.db import get_users
-
+from utils.combined_parser import prepare_user_data
 from flask_cors import CORS
 from matrix.api.utils import expect
 from datetime import datetime
@@ -66,3 +66,12 @@ def get_coach(email, year, month, day):
     if len(commits) > 0:
         return matrix.api.llmbox.get_coach(commits[0])
     return []
+
+
+
+@mood_mtx_api_v1.route('/raw_data', methods=['GET'])
+def get_raw_data():
+    data = prepare_user_data()
+    return jsonify(data)
+
+
