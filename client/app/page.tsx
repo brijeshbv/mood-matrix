@@ -8,12 +8,13 @@ export default function IndexPage() {
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
+          Welcome to Mood Matrix, your ultimate productivity companion!
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
+          Unlock your full potential at work by understanding and managing your
+          emotions with Mood Matrix. Embrace a happier, healthier, and more
+          productive work environment. Sign up today and experience the
+          transformative power of Mood Matrix!
         </p>
       </div>
       <div className="flex gap-4">
