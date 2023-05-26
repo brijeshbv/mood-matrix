@@ -8,8 +8,9 @@ import { Payment, columns } from "@/components/column"
 import { DataTable } from "@/components/data-table"
 import useSWR from 'swr';
 
-const fetcher = (...args) => fetch(...args).then((res) => { 
-  console.log(res)
+const fetcher = (url) => fetch(url, {
+  method: 'GET'
+}).then((res) => { 
   return res.json()});
  
 const data: Payment[] = [
@@ -47,17 +48,9 @@ const data: Payment[] = [
 
 export default function DataTableDemo() {
 
-  const {data, error } = useSWR('http://127.0.0.1:5000/api/v1/users_rating', fetcher)
-  // const [users, setUsers] = useState([]);
+  const {data, error } = useSWR(
+ 'http://127.0.0.1:5000/api/v1/users_rating', fetcher)
 
-  // useEffect(() =>{
-  //   console.log('running request')
-  //   fetch(`http://localhost/5000/api/v1/users`)
-  //     .then((response) => response.json())
-  //     .then(({ surveyData }) => console.log(surveyData))
-  //     .catch((error) => console.log(error))
-  // } ,[])
-  console.log(data, error)
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
