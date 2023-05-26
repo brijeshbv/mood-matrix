@@ -7,14 +7,9 @@ docstrings with a short explanation of the task.
 
 Look out for TODO markers for additional help. Good luck!
 """
-import bson
 
 from flask import current_app, g
 from werkzeug.local import LocalProxy
-from flask_pymongo import PyMongo
-from pymongo.errors import DuplicateKeyError, OperationFailure
-from bson.objectid import ObjectId
-from bson.errors import InvalidId
 
 
 def get_db():
@@ -26,9 +21,9 @@ def get_db():
     if db is None:
         app = current_app
 
-        pymongo = PyMongo(current_app, uri=current_app.config.get('MONGO_URI'))
-        db = pymongo.db
-        g._database = db
+        # pymongo = PyMongo(current_app, uri=current_app.config.get('MONGO_URI'))
+        # db = pymongo.db
+        # g._database = db
 
     return db
 

@@ -5,9 +5,9 @@ from langchain.chains.mapreduce import MapReduceChain
 from langchain.prompts import PromptTemplate
 from langchain.docstore.document import Document
 
-import os
+from dotenv import load_dotenv
 
-os.environ["OPENAI_API_KEY"] = "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"
+load_dotenv()
 def get_sentiment(item):
     prompt = """
         Summarise the sentiment of the text as either positive, neutral, negative. 

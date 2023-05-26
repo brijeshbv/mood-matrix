@@ -1,5 +1,5 @@
 import pytest
-from api import llmbox
+from matrix.api import llmbox
 
 def test_get_sentiment_positive():
     content = "I love this product! It's amazing."
