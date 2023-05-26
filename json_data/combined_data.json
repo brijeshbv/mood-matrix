@@ -1460,5 +1460,25 @@
             "time_spent":35,
             "content":"Subject: [Final warning] This is ridiculous\nMessage-ID: <D2636FB4-7101-4E7A-9BB1-1E017BA2B396@acme.com>\n\nDo I need to do everything myself? Your bug fixes are pathetic. I am utterly disappointed in this entire team. Get it together, or I'll find someone who can."
         }
+    ],
+    "emily@pythonista.org":[
+        {
+            "type":"email",
+            "time":1559361437,
+            "time_spent":35,
+            "content":"Subject: [Python-Dev] [RELEASE] Python 4.2.0a2 is ready for preview\nMessage-ID: <4GHF56A0-7E2D-4BB8-BE34-6K0E6N9H56C8@pythonista.org>\n\nGreetings everyone, I'm thrilled to announce Python 4.2.0a2 release for testing:\nhttps://www.python.org/downloads/release/python-420a2/\n\nI want to take a moment to recognize all the work you've been putting in. Remember, every small code change contributes to the grandeur of the Python community. So, whether you fixed a small bug or introduced a large feature, your contribution matters.\n\nIn this alpha version, we've aimed at incorporating all your brilliant ideas and solving the issues that were bothering us in the last versions. It's time for us to come together, test this release, and make it the best version of Python yet.\n\nYou're all doing a fantastic job. Let's continue to support and learn from one another. Here's to making Python even more awesome!\n\nBest,\nEmily"
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":100,
+            "content":"Add iterable unpacking in dict comprehension (PEP 448)\n\nThis new feature allows you to merge dictionaries in dictionary comprehensions. I believe it'll make your code cleaner and more efficient. Don't hesitate to reach out if you have any questions or need further clarification. Let's write better Python code together!"
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":70,
+            "content":"Update to Async/Await syntax (PEP 492)\n\nI've gone ahead and updated our Async/Await syntax for better readability and error handling. This should make our code more robust and easier to understand. If anyone needs help understanding these changes or wants to learn more about asynchronous programming in Python, I'd be more than happy to guide you. Keep up the good work everyone!"
+        }
     ]
 }
