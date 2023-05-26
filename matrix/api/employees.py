@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from matrix.db import get_users
-
+from utils.combined_parser import prepare_user_data
 from flask_cors import CORS
 from matrix.api.utils import expect
 from datetime import datetime
@@ -38,4 +38,10 @@ def get_summary(email, month, day, year):
     commits = gitcommit[email]
     if len(commits) > 0:
         return matrix.api.llmbox.get_summary(commits[0])
+
+
+@mood_mtx_api_v1.route('/summarize', methods=['POST'])
+def api_parse_users():
+    user_data = prepare_user_data()
+    return jsonify(user_data)
 
