@@ -13,27 +13,30 @@ cache = redis.StrictRedis(host=os.environ['REDIS_HOST'],port=6380,db=0,password=
 
 
 def get_sentiment(items):
-    md5=hashlib.md5()
-    md5.update(json.dumps(items, sort_keys=True).encode())
-    cachekey = f"sentiment.{md5.hexdigest()}"
-    cacheval = cache.get(cachekey)
-    if cacheval:
-        return json.loads(cacheval)
     prompt = """
-        Summarise the total count of each sentiment below and their percentage weight. Don't include anything else. If there is just one sentiment, give it 100% weight. Maximum 150 chars in output.
-        
+        Summarise the total count of each sentiment below and their percentage weight.
+
         {text}
-        
+
         Sentiment:  """
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
     combined_prompt = """
-            Summarise the total count of each sentiment below and their percentage weight.
+            Summarise the total count of each sentiment below and their percentage weight.  Don't include anything else. If there is just one sentiment, give it 100% weight. Keep max 150 chars in output.
 
             {text}
 
             Summary of Sentiment:  """
     combined_prompt_template = PromptTemplate(input_variables=["text"], template=combined_prompt)
+
+    md5=hashlib.md5()
+    md5.update(json.dumps(items, sort_keys=True).encode())
+    md5.update(json.dumps(prompt).encode())
+    md5.update(json.dumps(combined_prompt).encode())
+    cachekey = f"sentiment.{md5.hexdigest()}"
+    cacheval = cache.get(cachekey)
+    if cacheval:
+        return json.loads(cacheval)
 
     llm = OpenAI(temperature=0)
     docs = [Document(page_content=t['content']) for t in items]
