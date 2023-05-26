@@ -8,7 +8,7 @@ from dataclasses import dataclass
 @dataclass
 class Email:
     email: str
-    date: datetime
+    time: datetime
     content: str
 
 def parse_txt(filepath):
@@ -39,7 +39,7 @@ def parse_txt(filepath):
 class DateTimeEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
-            return obj.timestamp() * 1000
+            return int(obj.timestamp() * 1000)
         return super().default(obj)
 
 
