@@ -1,0 +1,2220 @@
+{
+  "benjamin@python.org": [
+    {
+      "type": "commit",
+      "time": 1561849222000,
+      "time spent": 58,
+      "content": "    bpo-37437: Pass -Wno-unreachable-code when compiling expat. (GH-14470)"
+    },
+    {
+      "type": "commit",
+      "time": 1561694084000,
+      "time spent": 116,
+      "content": "    closes bpo-37437: Update vendorized expat to 2.2.7. (GH-14436)"
+    },
+    {
+      "type": "commit",
+      "time": 1560919078000,
+      "time spent": 94,
+      "content": "    Fix name of '\\0'. (GH-14222)\n    \n    '\\0' is the NUL byte not NULL."
+    },
+    {
+      "type": "commit",
+      "time": 1560273331000,
+      "time spent": 5,
+      "content": "    Fix test_posix if RWF_HIPRI is defined but not preadv2. (GH-13980)\n    \n    If preadv2 is not available, preadv will raise NotImplementedError."
+    },
+    {
+      "type": "commit",
+      "time": 1560269911000,
+      "time spent": 70,
+      "content": "    closes bpo-33758: Skip test_get_type_hints_modules_forwardref. (GH-13977)\n    \n    This test \"works\" if things are run in the right order, so it's better to use @skip than @expectedFailure here."
+    }
+  ],
+  "adelfino@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561845589000,
+      "time spent": 118,
+      "content": "    Make StreamHandler.terminator more discoverable (GH-14359)"
+    },
+    {
+      "type": "commit",
+      "time": 1561845459000,
+      "time spent": 25,
+      "content": "    Fix indentation in logging.handlers.setStream (GH-14358)"
+    }
+  ],
+  "steve.dower@python.org": [
+    {
+      "type": "commit",
+      "time": 1561843723000,
+      "time spent": 115,
+      "content": "    bpo-37369: Fixes crash when reporting fatal error (GH-14468)"
+    },
+    {
+      "type": "commit",
+      "time": 1561829651000,
+      "time spent": 49,
+      "content": "    bpo-37369: Fix initialization of sys members when launched via an app container (GH-14428)\n    \n    sys._base_executable is now always defined on all platforms, and can be overridden through configuration.\n    Also adds test.support.PythonSymlink to encapsulate platform-specific logic for symlinking sys.executable"
+    },
+    {
+      "type": "commit",
+      "time": 1561657679000,
+      "time spent": 86,
+      "content": "    bpo-37390: Add audit event table to documentations (GH-14406)\n    \n    Also updates some (unreleased) event names to be consistent with the others."
+    },
+    {
+      "type": "commit",
+      "time": 1561564557000,
+      "time spent": 118,
+      "content": "    Improve Windows commands in tutorial (GH-14379)"
+    },
+    {
+      "type": "commit",
+      "time": 1561390974000,
+      "time spent": 83,
+      "content": "    bpo-37363: Add audit events for a range of modules (GH-14301)"
+    },
+    {
+      "type": "commit",
+      "time": 1561155406000,
+      "time spent": 21,
+      "content": "    bpo-37364: Use io.open_code() to read .pth files (GH-14299)\n    \n    \n    \n    https://bugs.python.org/issue37364"
+    },
+    {
+      "type": "commit",
+      "time": 1561152526000,
+      "time spent": 10,
+      "content": "    bpo-37351: Removes libpython38.a from standard Windows distribution (#14276)"
+    },
+    {
+      "type": "commit",
+      "time": 1560974843000,
+      "time spent": 32,
+      "content": "    bpo-37333: Ensure IncludeTkinter has a value (GH-14240)"
+    },
+    {
+      "type": "commit",
+      "time": 1560810456000,
+      "time spent": 95,
+      "content": "    Improve release build performance using new artifacts tasks (GH-14175)"
+    },
+    {
+      "type": "commit",
+      "time": 1560796568000,
+      "time spent": 9,
+      "content": "    bpo-34631: Updated OpenSSL to 1.1.1c in Windows installer (GH-14163)"
+    },
+    {
+      "type": "commit",
+      "time": 1560547165000,
+      "time spent": 115,
+      "content": "    Fix Windows release build issues (GH-14091)\n    \n    * Increase timeout for PGO builds in Windows release\n    * Fix test step failures\n    * Disable MinGW step properly\n    * Fix embeddable distro name"
+    },
+    {
+      "type": "commit",
+      "time": 1560526160000,
+      "time spent": 23,
+      "content": "    Implement Windows release builds in Azure Pipelines (GH-14065)"
+    },
+    {
+      "type": "commit",
+      "time": 1559837211000,
+      "time spent": 115,
+      "content": "    bpo-37156: Fix libssl DLL tag in MSI sources (GH-13866)"
+    },
+    {
+      "type": "commit",
+      "time": 1559663730000,
+      "time spent": 37,
+      "content": "    bpo-36742: Corrects fix to handle decomposition in usernames (#13812)"
+    }
+  ],
+  "44193521+aeros167@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561750631000,
+      "time spent": 118,
+      "content": "    bpo-19696: Moved \"test_pkgimport.py\" to dir \"test_importlib\" (GH-14303)\n    \n    \n    \n    Also renamed the file to \"test_pkg_import.py\" to better follow the naming convention. Component of issue 19696.\n    \n    \n    \n    \n    \n    https://bugs.python.org/issue19696"
+    },
+    {
+      "type": "commit",
+      "time": 1561092187000,
+      "time spent": 92,
+      "content": "    Docs: Improved phrasing (GH-14069)\n    \n    * Docs: Improved phrasing\n    \n    Removed usage of second person pronouns in the section and made the assumption of \"uneasiness\" in code style transition more neutral.\n    \n    * Removed trailing whitespace on line 34"
+    }
+  ],
+  "54418+brettcannon@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561749271000,
+      "time spent": 40,
+      "content": "    bpo-37403: Touch up venv docs (GH-14458)\n    \n    Add a versionadded for PS Core and note that `.venv` is a common virtual environment name."
+    },
+    {
+      "type": "commit",
+      "time": 1560821456000,
+      "time spent": 68,
+      "content": "    Add sponsorship details for GitHub Sponsor button (GH-14181)"
+    }
+  ],
+  "brian@sweetapp.com": [
+    {
+      "type": "commit",
+      "time": 1561748092000,
+      "time spent": 52,
+      "content": "    bpo-31783: Fix a race condition creating workers during shutdown (#13171)\n    \n    * bpo-31783: Fix a race condition while creating workers during interpreter shutdown\n    \n    * \u2261\u0192\u00f4\u00a3\u2261\u0192\u00f1\u00fb Added by blurb_it."
+    }
+  ],
+  "vstinner@redhat.com": [
+    {
+      "type": "commit",
+      "time": 1561743588000,
+      "time spent": 81,
+      "content": "    bpo-37412: Fix test_os.test_getcwd_long_path() on macOS (GH-14452)"
+    },
+    {
+      "type": "commit",
+      "time": 1561737905000,
+      "time spent": 114,
+      "content": "    bpo-37412: pythoninfo: add Windows long paths (GH-14434)\n    \n    On Windows, test.pythoninfo now checks if support for long paths is\n    enabled using ntdll.RtlAreLongPathsEnabled() function.\n    \n    Co-Authored-By: Eryk Sun <eryksun@gmail.com>"
+    },
+    {
+      "type": "commit",
+      "time": 1561737719000,
+      "time spent": 44,
+      "content": "    bpo-37412: Fix os.getcwd() for long path on Windows (GH-14424)\n    \n    * Fix test for integer overflow.\n    * Add an unit test."
+    },
+    {
+      "type": "commit",
+      "time": 1561733378000,
+      "time spent": 4,
+      "content": "    bpo-20443: Fix calculate_program_full_path() warning (GH-14446)\n    \n    Don't call _Py_isabs() with a bytes string (char*), the function\n    expects as wide string."
+    },
+    {
+      "type": "commit",
+      "time": 1561619068000,
+      "time spent": 81,
+      "content": "    bpo-35389: platform.platform() calls libc_ver() without executable (GH-14418)\n    \n    When libc_ver() is called with an executable, the\n    os.confstr('CS_GNU_LIBC_VERSION') fast-path cannot be taken. Modify\n    platform.platform() to call libc_ver() without executable, instead of\n    calling libc_ver(sys.executable), since sys.executable is already the\n    default value."
+    },
+    {
+      "type": "commit",
+      "time": 1561592393000,
+      "time spent": 27,
+      "content": "    bpo-37421: Fix test_shutil: don't leak temporary files (GH-14416)\n    \n    * Fix typo in supports_file2file_sendfile(); ensure that dst is\n      removed\n    * Fix test_copytree_custom_copy_function(): remove dst tree.\n      Use support.rmtree() rather than shutil.rmtree() to remove\n      temporary directories: support tries harder."
+    },
+    {
+      "type": "commit",
+      "time": 1561565795000,
+      "time spent": 35,
+      "content": "    bpo-37411: Rewrite test_wsgiref.testEnviron() (GH-14394)\n    \n    Fix test_wsgiref.testEnviron() to no longer depend on the environment\n    variables (don't fail if \"X\" variable is set).\n    \n    testEnviron() now overrides os.environ to get a deterministic\n    environment. Test full TestHandler.environ content: not only a few\n    selected variables."
+    },
+    {
+      "type": "commit",
+      "time": 1561564870000,
+      "time spent": 14,
+      "content": "    bpo-37414: Remove sys.callstats() (GH-14398)\n    \n    Remove the undocumented sys.callstats() function. Since Python 3.7,\n    it was deprecated and always returned None. It required a special\n    build option CALL_PROFILE which was already removed in Python 3.7."
+    },
+    {
+      "type": "commit",
+      "time": 1561563072000,
+      "time spent": 115,
+      "content": "    bpo-37412: os.getcwdb() now uses UTF-8 on Windows (GH-14396)\n    \n    The os.getcwdb() function now uses the UTF-8 encoding on Windows,\n    rather than the ANSI code page: see PEP 529 for the rationale. The\n    function is no longer deprecated on Windows.\n    \n    os.getcwd() and os.getcwdb() now detect integer overflow on memory\n    allocations. On Unix, these functions properly report MemoryError on\n    memory allocation failure."
+    },
+    {
+      "type": "commit",
+      "time": 1561511784000,
+      "time spent": 28,
+      "content": "    bpo-37406: sqlite3 raises TypeError for wrong operation type (GH-14386)\n    \n    The sqlite3 module now raises TypeError, rather than ValueError, if\n    operation argument type is not str: execute(), executemany() and\n    calling a connection."
+    },
+    {
+      "type": "commit",
+      "time": 1561506572000,
+      "time spent": 28,
+      "content": "    bpo-37388: Add PyUnicode_Decode(str, 0) fast-path (GH-14385)\n    \n    Add a fast-path to PyUnicode_Decode() for size equals to 0."
+    },
+    {
+      "type": "commit",
+      "time": 1561503065000,
+      "time spent": 93,
+      "content": "    bpo-37388: Development mode check encoding and errors (GH-14341)\n    \n    In development mode and in debug build, encoding and errors arguments\n    are now checked on string encoding and decoding operations. Examples:\n    open(), str.encode() and bytes.decode().\n    \n    By default, for best performances, the errors argument is only\n    checked at the first encoding/decoding error, and the encoding\n    argument is sometimes ignored for empty strings."
+    },
+    {
+      "type": "commit",
+      "time": 1561475184000,
+      "time spent": 107,
+      "content": "    bpo-37400: Fix test_os.test_chown() (GH-14374)\n    \n    Use os.getgroups() rather than grp.getgrall() to get groups.\n    Rename also the test to test_chown_gid()."
+    },
+    {
+      "type": "commit",
+      "time": 1561467763000,
+      "time spent": 106,
+      "content": "    bpo-20443: _PyConfig_Read() gets the absolute path of run_filename (GH-14053)\n    \n    Python now gets the absolute path of the script filename specified on\n    the command line (ex: \"python3 script.py\"): the __file__ attribute of\n    the __main__ module, sys.argv[0] and sys.path[0] become an absolute\n    path, rather than a relative path.\n    \n    * Add _Py_isabs() and _Py_abspath() functions.\n    * _PyConfig_Read() now tries to get the absolute path of\n      run_filename, but keeps the relative path if _Py_abspath() fails.\n    * Reimplement os._getfullpathname() using _Py_abspath().\n    * Use _Py_isabs() in getpath.c."
+    },
+    {
+      "type": "commit",
+      "time": 1561462647000,
+      "time spent": 12,
+      "content": "    bpo-37400: pythoninfo logs getpwuid and getgrouplist (GH-14373)\n    \n    test.pythoninfo now also logs pwd.getpwuid(os.getuid()) and\n    os.getgrouplist(). Extract also os.getrandom() test to run it first."
+    },
+    {
+      "type": "commit",
+      "time": 1561424468000,
+      "time spent": 60,
+      "content": "    bpo-37392: Remove sys.setcheckinterval() (GH-14355)\n    \n    Remove sys.getcheckinterval() and sys.setcheckinterval() functions.\n    They were deprecated since Python 3.2. Use sys.getswitchinterval()\n    and sys.setswitchinterval() instead.\n    \n    Remove also check_interval field of the PyInterpreterState structure."
+    },
+    {
+      "type": "commit",
+      "time": 1561375188000,
+      "time spent": 98,
+      "content": "    bpo-37359: Fix regrtest --cleanup (GH-14336)"
+    },
+    {
+      "type": "commit",
+      "time": 1561370580000,
+      "time spent": 30,
+      "content": "    bpo-37359: Add --cleanup option to python3 -m test (GH-14332)\n    \n    * regrtest: Add --cleanup option to remove \"test_python_*\" directories\n      of previous failed test jobs.\n    * Add \"make cleantest\" to run \"python3 -m test --cleanup\"."
+    },
+    {
+      "type": "commit",
+      "time": 1561151850000,
+      "time spent": 24,
+      "content": "    bpo-37362: test_gdb now ignores stderr (GH-14287)\n    \n    test_gdb no longer fails if it gets an \"unexpected\" message on\n    stderr: it now ignores stderr. The purpose of test_gdb is to test\n    that python-gdb.py commands work as expected, not to test gdb."
+    },
+    {
+      "type": "commit",
+      "time": 1561063285000,
+      "time spent": 59,
+      "content": "    Update What's New in Python 3.9 (GH-14253)\n    \n    \n    \n    * Mention bpo of PyImport_Cleanup removal\n    * Fix bpo number of PyByteArray_Init removal"
+    },
+    {
+      "type": "commit",
+      "time": 1560987898000,
+      "time spent": 70,
+      "content": "    Update What's New in Python 3.8 (GH-14239)\n    \n    * Mention issue in which ByByteArray_Init() has been removed.\n    * Fix typo"
+    },
+    {
+      "type": "commit",
+      "time": 1560981923000,
+      "time spent": 71,
+      "content": "    bpo-36710: Use tstate in pylifecycle.c (GH-14249)\n    \n    In pylifecycle.c: pass tstate argument, rather than interp argument,\n    to functions."
+    },
+    {
+      "type": "commit",
+      "time": 1560933370000,
+      "time spent": 44,
+      "content": "    bpo-36710: Remove PyImport_Cleanup() function (GH-14221)\n    \n    * Rename PyImport_Cleanup() to _PyImport_Cleanup() and move it to the\n      internal C API. Add 'tstate' parameters.\n    * Remove documentation of _PyImport_Init(), PyImport_Cleanup(),\n      _PyImport_Fini(). All three were documented as \"For internal use\n      only.\"."
+    },
+    {
+      "type": "commit",
+      "time": 1560905679000,
+      "time spent": 90,
+      "content": "    bpo-36710: Add tstate parameter in import.c (GH-14218)\n    \n    * Add 'tstate' parameter to many internal import.c functions.\n    * _PyImportZip_Init() now gets 'tstate' parameter rather than\n      'interp'.\n    * Add 'interp' parameter to _PyState_ClearModules() and rename it\n      to _PyInterpreterState_ClearModules().\n    * Move private _PyImport_FindBuiltin() to the internal C API; add\n      'tstate' parameter to it.\n    * Remove private _PyImport_AddModuleObject() from the C API:\n      use public PyImport_AddModuleObject() instead.\n    * Remove private _PyImport_FindExtensionObjectEx() from the C API:\n      use private _PyImport_FindExtensionObject() instead."
+    },
+    {
+      "type": "commit",
+      "time": 1560898089000,
+      "time spent": 34,
+      "content": "    bpo-35134: Add Include/cpython/import.h header file (GH-14213)\n    \n    * Add Include/cpython/import.h and Include/internal/pycore_import.h\n      header files.\n    * Move _PyImport_ReInitLock() to the internal C API. Don't export the\n      symbol anymore."
+    },
+    {
+      "type": "commit",
+      "time": 1560809713000,
+      "time spent": 101,
+      "content": "    bpo-37189: Export old PyRun_XXX() functions (#14142)\n    \n    Many PyRun_XXX() functions like PyRun_String() were no longer\n    exported in libpython38.dll by mistake. Export them again to fix the\n    ABI compatibiliy."
+    },
+    {
+      "type": "commit",
+      "time": 1560809460000,
+      "time spent": 5,
+      "content": "    Fix test_embed.test_pre_initialization_sys_options() env vars (GH-14172)\n    \n    test_pre_initialization_sys_options() of test_embed now removes\n    PYTHON* environment variables like PYTHONWARNINGS."
+    },
+    {
+      "type": "commit",
+      "time": 1560808824000,
+      "time spent": 63,
+      "content": "    bpo-37320: Remove openfp() of aifc, sunau and wave (GH-14169)\n    \n    aifc.openfp() alias to aifc.open(), sunau.openfp() alias to\n    sunau.open(), and wave.openfp() alias to wave.open() have been\n    removed. They were deprecated since Python 3.7."
+    },
+    {
+      "type": "commit",
+      "time": 1560784536000,
+      "time spent": 73,
+      "content": "    bpo-37194: Add PyObject_CallNoArgs() rationale (GH-14159)\n    \n    Explain in the doc why PyObject_CallNoArgs() should be preferred over\n    other existing ways to call a function without any arguments."
+    },
+    {
+      "type": "commit",
+      "time": 1560776290000,
+      "time spent": 54,
+      "content": "    bpo-37194: Complete PyObject_CallXXX() docs (GH-14156)\n    \n    Mention explicitly that PyObject_CallXXX() functions raise an\n    exception an failure."
+    },
+    {
+      "type": "commit",
+      "time": 1560774443000,
+      "time spent": 19,
+      "content": "    bpo-37194: Add a new public PyObject_CallNoArgs() function (GH-13890)\n    \n    Add a new public PyObject_CallNoArgs() function to the C API: call a\n    callable Python object without any arguments.\n    \n    It is the most efficient way to call a callback without any argument.\n    On x86-64, for example, PyObject_CallFunctionObjArgs(func, NULL)\n    allocates 960 bytes on the stack per call, whereas\n    PyObject_CallNoArgs(func) only allocates 624 bytes per call.\n    \n    It is excluded from stable ABI 3.8.\n    \n    Replace private _PyObject_CallNoArg() with public\n    PyObject_CallNoArgs() in C extensions: _asyncio, _datetime,\n    _elementtree, _pickle, _tkinter and readline."
+    },
+    {
+      "type": "commit",
+      "time": 1560773923000,
+      "time spent": 104,
+      "content": "    bpo-37312: Remove _dummy_thread and dummy_threading modules (GH-14143)\n    \n    Remove _dummy_thread and dummy_threading modules. These modules\n    were deprecated since Python 3.7 which requires threading support."
+    },
+    {
+      "type": "commit",
+      "time": 1560764869000,
+      "time spent": 28,
+      "content": "    bpo-35031, test_asycio: disable TLS 1.3 in test_start_tls_server_1() (GH-14148)\n    \n    bpo-35031, bpo-35998: Reintroduce workaround on Windows and FreeBSD\n    in test_start_tls_server_1() of test_asyncio: disable TLS v1.3 on the\n    client context."
+    },
+    {
+      "type": "commit",
+      "time": 1560561881000,
+      "time spent": 43,
+      "content": "    bpo-36707: Document \"m\" removal from sys.abiflags (GH-14090)"
+    },
+    {
+      "type": "commit",
+      "time": 1560534223000,
+      "time spent": 88,
+      "content": "    Document C API changes in What's New in Python 3.8 (GH-14092)"
+    },
+    {
+      "type": "commit",
+      "time": 1560533503000,
+      "time spent": 38,
+      "content": "    bpo-35537: Rewrite setsid test for os.posix_spawn (GH-11721)\n    \n    bpo-35537, bpo-35876: Fix also test_start_new_session() of\n    test_subprocess: use os.getsid() rather than os.getpgid()."
+    },
+    {
+      "type": "commit",
+      "time": 1560531322000,
+      "time spent": 109,
+      "content": "    bpo-37266: Daemon threads are now denied in subinterpreters (GH-14049)\n    \n    In a subinterpreter, spawning a daemon thread now raises an\n    exception. Daemon threads were never supported in subinterpreters.\n    Previously, the subinterpreter finalization crashed with a Pyton\n    fatal error if a daemon thread was still running.\n    \n    * Add _thread._is_main_interpreter()\n    * threading.Thread.start() now raises RuntimeError if the thread is a\n      daemon thread and the method is called from a subinterpreter.\n    * The _thread module now uses Argument Clinic for the new function.\n    * Use textwrap.dedent() in test_threading.SubinterpThreadingTests"
+    },
+    {
+      "type": "commit",
+      "time": 1560528202000,
+      "time spent": 109,
+      "content": "    bpo-37261: Document sys.unraisablehook corner cases (GH-14059)\n    \n    Document reference cycle and resurrected objects issues in\n    sys.unraisablehook() and threading.excepthook() documentation.\n    \n    Fix test.support.catch_unraisable_exception(): __exit__() no longer\n    ignores unraisable exceptions.\n    \n    Fix test_io test_writer_close_error_on_close(): use a second\n    catch_unraisable_exception() to catch the BufferedWriter unraisable\n    exception."
+    },
+    {
+      "type": "commit",
+      "time": 1560510171000,
+      "time spent": 118,
+      "content": "    bpo-37278: Fix test_asyncio ProactorLoopCtrlC (GH-14074)\n    \n    Join the thread to prevent leaking a running thread and leaking a\n    reference.\n    \n    Cleanup also the test:\n    \n    * asyncioWindowsProactorEventLoopPolicy became the default policy,\n      there is no need to set it manually.\n    * Only start the thread once the loop is running.\n    * Use a shorter sleep in the thread (100 ms rather than 1 sec).\n    * Use close_loop(loop) rather than loop.close().\n    * Use longer variable names."
+    },
+    {
+      "type": "commit",
+      "time": 1560458483000,
+      "time spent": 54,
+      "content": "    bpo-36710: Pass explicitly tstate in sysmodule.c (GH-14060)\n    \n    * Replace global var Py_VerboseFlag with interp->config.verbose.\n    * Add _PyErr_NoMemory(tstate) function.\n    * Add tstate parameter to _PyEval_SetCoroutineOriginTrackingDepth()\n      and move the function to the internal API.\n    * Replace _PySys_InitMain(runtime, interp)\n      with _PySys_InitMain(runtime, tstate)."
+    },
+    {
+      "type": "commit",
+      "time": 1560429894000,
+      "time spent": 31,
+      "content": "    bpo-37261: Fix support.catch_unraisable_exception() (GH-14052)\n    \n    The __exit__() method of test.support.catch_unraisable_exception\n    context manager now ignores unraisable exception raised when clearing\n    self.unraisable attribute."
+    },
+    {
+      "type": "commit",
+      "time": 1560427131000,
+      "time spent": 24,
+      "content": "    bpo-37210: Fix pure Python pickle when _pickle is unavailable (GH-14016)\n    \n    Allow pure Python implementation of pickle to work\n    even when the C _pickle module is unavailable.\n    \n    Fix test_pickle when _pickle is missing: declare PyPicklerHookTests\n    outside \"if has_c_implementation:\" block."
+    },
+    {
+      "type": "commit",
+      "time": 1560420384000,
+      "time spent": 53,
+      "content": "    tbpo-36402: Fix threading.Thread._stop() (GH-14047)\n    \n    Remove the _tstate_lock from _shutdown_locks, don't remove None."
+    },
+    {
+      "type": "commit",
+      "time": 1560410325000,
+      "time spent": 90,
+      "content": "    bpo-37253: Remove PyAST_obj2mod_ex() function (GH-14020)\n    \n    PyAST_obj2mod_ex() is similar to PyAST_obj2mod() with an additional\n    'feature_version' parameter which is unused."
+    },
+    {
+      "type": "commit",
+      "time": 1560385034000,
+      "time spent": 52,
+      "content": "    bpo-37253: Fix typo in PyCompilerFlags doc (GH-14036)\n    \n    Remove \";\" to fix Sphinx formatting."
+    },
+    {
+      "type": "commit",
+      "time": 1560385001000,
+      "time spent": 24,
+      "content": "    bpo-37253: Add _PyCompilerFlags_INIT macro (GH-14018)\n    \n    Add a new _PyCompilerFlags_INIT macro to initialize PyCompilerFlags\n    variables, rather than initializing cf_flags and cf_feature_version\n    explicitly in each variable."
+    },
+    {
+      "type": "commit",
+      "time": 1560384089000,
+      "time spent": 87,
+      "content": "    bpo-37253: Document PyCompilerFlags.cf_feature_version (GH-14019)\n    \n    * Update PyCompilerFlags structure documentation.\n    * Document the new cf_feature_version field in the Changes in the C\n      API section of the What's New in Python 3.8 doc."
+    },
+    {
+      "type": "commit",
+      "time": 1560382217000,
+      "time spent": 88,
+      "content": "    bpo-36402: Fix threading._shutdown() race condition (GH-13948)\n    \n    Fix a race condition at Python shutdown when waiting for threads.\n    Wait until the Python thread state of all non-daemon threads get\n    deleted (join all non-daemon threads), rather than just wait until\n    Python threads complete.\n    \n    * Add threading._shutdown_locks: set of Thread._tstate_lock locks\n      of non-daemon threads used by _shutdown() to wait until all Python\n      thread states get deleted. See Thread._set_tstate_lock().\n    * Add also threading._shutdown_locks_lock to protect access to\n      threading._shutdown_locks.\n    * Add test_finalization_shutdown() test."
+    },
+    {
+      "type": "commit",
+      "time": 1560380944000,
+      "time spent": 35,
+      "content": "    bpo-37069: regrtest uses sys.unraisablehook (GH-13759)\n    \n    regrtest now uses sys.unraisablehook() to mark a test as \"environment\n    altered\" (ENV_CHANGED) if it emits an \"unraisable exception\".\n    Moreover, regrtest logs a warning in this case.\n    \n    Use \"python3 -m test --fail-env-changed\" to catch unraisable\n    exceptions in tests."
+    },
+    {
+      "type": "commit",
+      "time": 1560376631000,
+      "time spent": 9,
+      "content": "    bpo-37223, test_io: silence last 'Exception ignored in:' (GH-14029)\n    \n    Use catch_unraisable_exception() to ignore 'Exception ignored in:'\n    error when the internal BufferedWriter of the BufferedRWPair is\n    destroyed. The C implementation doesn't give access to the\n    internal BufferedWriter, so just ignore the warning instead."
+    },
+    {
+      "type": "commit",
+      "time": 1560307276000,
+      "time spent": 23,
+      "content": "    bpo-26219: Fix compiler warning in _PyCode_InitOpcache() (GH-13997)\n    \n    Fix MSVC warning:\n    \n        objects\\codeobject.c(285): warning C4244: '=':\n        conversion from 'Py_ssize_t' to 'unsigned char',\n        possible loss of data"
+    },
+    {
+      "type": "commit",
+      "time": 1560305258000,
+      "time spent": 103,
+      "content": "    bpo-36918: Fix \"Exception ignored in\" in test_urllib (GH-13996)\n    \n    Mock the HTTPConnection.close() method in a few unit tests to avoid\n    logging \"Exception ignored in: ...\" messages."
+    },
+    {
+      "type": "commit",
+      "time": 1560300736000,
+      "time spent": 70,
+      "content": "    bpo-35766: compile(): rename feature_version parameter (GH-13994)\n    \n    Rename compile() feature_version parameter to _feature_version and\n    convert it to a keyword-only parameter.\n    \n    Update also test_type_comments to pass feature_version as a tuple."
+    },
+    {
+      "type": "commit",
+      "time": 1560215459000,
+      "time spent": 53,
+      "content": "    bpo-37223: test_io: silence destructor errors (GH-13954)\n    \n    Implement also MockNonBlockWriterIO.seek() method."
+    },
+    {
+      "type": "commit",
+      "time": 1560214146000,
+      "time spent": 9,
+      "content": "    bpo-18748: Fix _pyio.IOBase destructor (closed case) (GH-13952)\n    \n    _pyio.IOBase destructor now does nothing if getting the closed\n    attribute fails to better mimick _io.IOBase finalizer."
+    },
+    {
+      "type": "commit",
+      "time": 1559922688000,
+      "time spent": 93,
+      "content": "    bpo-37191: Move TestPEP590 from test_capi to test_call (GH-13892)"
+    },
+    {
+      "type": "commit",
+      "time": 1559917341000,
+      "time spent": 58,
+      "content": "    bpo-37169: Rewrite _PyObject_IsFreed() unit tests (GH-13888)\n    \n    Replace two Python function calls with a single one to ensure that no\n    memory allocation is done between the invalid object is created and\n    when _PyObject_IsFreed() is called."
+    },
+    {
+      "type": "commit",
+      "time": 1559823918000,
+      "time spent": 11,
+      "content": "    bpo-36763, _testembed: enable assert() in release mode (GH-13857)"
+    },
+    {
+      "type": "commit",
+      "time": 1559764773000,
+      "time spent": 87,
+      "content": "    bpo-33725, multiprocessing doc: rephase warning against fork on macOS (GH-13841)\n    \n    Co-Authored-By: Barry Warsaw <barry@python.org>"
+    },
+    {
+      "type": "commit",
+      "time": 1559730292000,
+      "time spent": 116,
+      "content": "    bpo-26836: Document os.memfd_create() name parameter (GH-13838)\n    \n    \n    \n    https://bugs.python.org/issue26836"
+    },
+    {
+      "type": "commit",
+      "time": 1559667793000,
+      "time spent": 72,
+      "content": "    bpo-37153: test_venv.test_mutiprocessing() calls pool.terminate() (GH-13816)\n    \n    test_venv.test_mutiprocessing() now explicitly calls pool.terminate()\n    to wait until the pool completes."
+    },
+    {
+      "type": "commit",
+      "time": 1559660950000,
+      "time spent": 15,
+      "content": "    bpo-36778: Remove outdated comment from CodePageTest (GH-13807)\n    \n    CP65001Test has been removed."
+    },
+    {
+      "type": "commit",
+      "time": 1559660904000,
+      "time spent": 56,
+      "content": "    bpo-26219: Fix compiler warning in _PyCode_InitOpcache() (GH-13809)\n    \n    Fix this MSVC warning:\n    \n        objects\\codeobject.c(264): warning C4244: '=':\n        conversion from 'Py_ssize_t' to 'unsigned char', possible loss of data"
+    },
+    {
+      "type": "commit",
+      "time": 1559610909000,
+      "time spent": 59,
+      "content": "    Revert \"bpo-36818: Add PyInterpreterState.runtime field. (gh-13129)\" (GH-13795)\n    \n    This reverts commit 396e0a8d9dc65453cb9d53500d0a620602656cfe."
+    },
+    {
+      "type": "commit",
+      "time": 1559597464000,
+      "time spent": 34,
+      "content": "    bpo-34037, asyncio: add BaseEventLoop.wait_executor_on_close (GH-13786)\n    \n    Add BaseEventLoop.wait_executor_on_close attribute: true by default.\n    \n    loop.close() now waits for the default executor to finish by default.\n    Set loop.wait_executor_on_close attribute to False to not wait for\n    the executor."
+    },
+    {
+      "type": "commit",
+      "time": 1559578464000,
+      "time spent": 25,
+      "content": "    Revert \"bpo-33608: Factor out a private, per-interpreter _Py_AddPendingCall(). (gh-13714)\" (GH-13780)\n    \n    This reverts commit 6a150bcaeb190d1731b38ab9c7a5d1a352847ddc."
+    },
+    {
+      "type": "commit",
+      "time": 1559576944000,
+      "time spent": 45,
+      "content": "    bpo-37137: Fix test_asyncio: use TestCase.set_event_loop() (GH-13779)\n    \n    Replace asyncio.set_event_loop() with TestCase.set_event_loop() of\n    test_asyncio.utils: this method calls TestCase.close_loop() which\n    waits until the executor completes, to avoid leaking dangling\n    threads.\n    \n    Inherit from test_asyncio.utils.TestCase rather than\n    unittest.TestCase."
+    },
+    {
+      "type": "commit",
+      "time": 1559572081000,
+      "time spent": 58,
+      "content": "    Add credits to What's New in Python 3.8 (GH-13776)\n    \n    * Credit myself and others.\n    * Complete asyncio changes."
+    },
+    {
+      "type": "commit",
+      "time": 1559526703000,
+      "time spent": 68,
+      "content": "    bpo-37069: tests use catch_unraisable_exception() (GH-13762)\n    \n    Modify test_coroutines, test_cprofile, test_generators, test_raise,\n    test_ssl and test_yield_from to use\n    support.catch_unraisable_exception() rather than\n    support.captured_stderr().\n    \n    test_thread: remove test_save_exception_state_on_error() which is now\n    updated. test_unraisable_exception() checks that sys.unraisablehook()\n    is called to handle _thread.start_new_thread() exception.\n    \n    test_cprofile now rely on unittest for test discovery: replace\n    support.run_unittest() with unittest.main()."
+    },
+    {
+      "type": "commit",
+      "time": 1559518537000,
+      "time spent": 37,
+      "content": "    bpo-37100: Fix test_coroutines with -Werror (GH-13756)\n    \n    test_coroutines: test_unawaited_warning_when_module_broken() now uses\n    support.check_warnings() to catch expected RuntimeWarning."
+    },
+    {
+      "type": "commit",
+      "time": 1559509721000,
+      "time spent": 103,
+      "content": "    bpo-36829: test_threading: Fix a ref cycle (GH-13752)"
+    }
+  ],
+  "kupruser@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561738336000,
+      "time spent": 46,
+      "content": "    bpo-37380: subprocess: don't use _active on win (GH-14360)\n    \n    As noted by @eryksun in [1] and [2], using _cleanup and _active(in\n    __del__) is not necessary on Windows, since:\n    \n    > Unlike Unix, a process in Windows doesn't have to be waited on by\n    > its parent to avoid a zombie. Keeping the handle open will actually\n    > create a zombie until the next _cleanup() call, which may be never\n    > if Popen() isn't called again.\n    \n    This patch simply defines `subprocess._active` as `None`, for which we already\n    have the proper logic in place in `subprocess.Popen.__del__`, that prevents it\n    from trying to append the process to the `_active`. This patch also defines\n    `subprocess._cleanup` as a noop for Windows.\n    \n    [1] https://bugs.python.org/issue37380#msg346333\n    [2] https://bugs.python.org/issue36067#msg336262\n    \n    Signed-off-by: Ruslan Kuprieiev <ruslan@iterative.ai>"
+    }
+  ],
+  "J.Demeyer@UGent.be": [
+    {
+      "type": "commit",
+      "time": 1561715340000,
+      "time spent": 80,
+      "content": "    bpo-37337: Add _PyObject_VectorcallMethod() (GH-14228)"
+    },
+    {
+      "type": "commit",
+      "time": 1561634264000,
+      "time spent": 81,
+      "content": "    bpo-33926: enable GDB tests on Travis CI (GH-14395)"
+    },
+    {
+      "type": "commit",
+      "time": 1561372865000,
+      "time spent": 30,
+      "content": "    bpo-36974: inherit tp_vectorcall_offset unconditionally (GH-13858)"
+    },
+    {
+      "type": "commit",
+      "time": 1561045126000,
+      "time spent": 3,
+      "content": "    bpo-37151: remove _PyCFunction_FastCallDict (GH-14269)"
+    },
+    {
+      "type": "commit",
+      "time": 1560855941000,
+      "time spent": 27,
+      "content": "    bpo-37151: remove _PyFunction_FastCallDict (GH-13864)"
+    },
+    {
+      "type": "commit",
+      "time": 1560848213000,
+      "time spent": 73,
+      "content": "    bpo-37233: use _PY_FASTCALL_SMALL_STACK in method_vectorcall (GH-13974)"
+    },
+    {
+      "type": "commit",
+      "time": 1560847828000,
+      "time spent": 5,
+      "content": "    bpo-37151: use PyVectorcall_Call for all calls of \"method\" (GH-13972)"
+    },
+    {
+      "type": "commit",
+      "time": 1560772401000,
+      "time spent": 54,
+      "content": "    bpo-36922: use Py_TPFLAGS_METHOD_DESCRIPTOR in lookup_maybe_method() (GH-13865)"
+    },
+    {
+      "type": "commit",
+      "time": 1560771693000,
+      "time spent": 44,
+      "content": "    bpo-37231: remove _PyObject_FastCall_Prepend (GH-14153)"
+    },
+    {
+      "type": "commit",
+      "time": 1560704603000,
+      "time spent": 88,
+      "content": "    bpo-28805: document METH_FASTCALL (GH-14079)"
+    },
+    {
+      "type": "commit",
+      "time": 1560508635000,
+      "time spent": 77,
+      "content": "    bpo-37249: add declaration of _PyObject_GetMethod (GH-14015)"
+    },
+    {
+      "type": "commit",
+      "time": 1560418004000,
+      "time spent": 35,
+      "content": "    bpo-37231: optimize calls of special methods (GH-13973)"
+    },
+    {
+      "type": "commit",
+      "time": 1559930513000,
+      "time spent": 94,
+      "content": "    bpo-37138: fix undefined behaviour with memcpy() on NULL array (GH-13867)"
+    },
+    {
+      "type": "commit",
+      "time": 1559902824000,
+      "time spent": 25,
+      "content": "    bpo-37151: simplify classmethoddescr_call (GH-13340)"
+    },
+    {
+      "type": "commit",
+      "time": 1559519842000,
+      "time spent": 6,
+      "content": "    bpo-36974: add some assertions for PEP 590 (GH-13682)"
+    },
+    {
+      "type": "commit",
+      "time": 1559518993000,
+      "time spent": 41,
+      "content": "    bpo-36974: document PEP 590 (GH-13450)"
+    }
+  ],
+  "shihai1992@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561712577000,
+      "time spent": 20,
+      "content": "    bpo-37432: Doc: Fix signature of PyObject_Del() (GH-14430)"
+    },
+    {
+      "type": "commit",
+      "time": 1561001544000,
+      "time spent": 2,
+      "content": "    bpo-37342: Fix the incorrect nb_index's type in typeobj documentation (GH-14241)\n    \n    \n    \n    It was listed as `binaryfunc`. It should be `unaryfunc`."
+    },
+    {
+      "type": "commit",
+      "time": 1560716359000,
+      "time spent": 61,
+      "content": "    closes bpo-37300: Remove unnecessary Py_XINCREF in classobject.c. (GH-14120)"
+    }
+  ],
+  "songofacandy@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561655137000,
+      "time spent": 20,
+      "content": "    bpo-30345: travis: use -Og with --with-pydebug (GH-14423)"
+    },
+    {
+      "type": "commit",
+      "time": 1561347024000,
+      "time spent": 78,
+      "content": "    bpo-37348: optimize decoding ASCII string (GH-14283)\n    \n    `_PyUnicode_Writer` is a relatively complex structure.  Initializing it is significant overhead when decoding short ASCII string."
+    },
+    {
+      "type": "commit",
+      "time": 1559799532000,
+      "time spent": 113,
+      "content": "    bpo-35551: remove mac_centeuro encoding (GH-13856)\n    \n    It is alias to mac_latin2 now."
+    },
+    {
+      "type": "commit",
+      "time": 1559601490000,
+      "time spent": 60,
+      "content": "    bpo-37146: disable opcache when Py_DEBUG is defined (GH-13787)\n    \n    --with-pydebug is commonly used to find memory leaks.\n    But opcache makes it harder.\n    So disable opcache when Py_DEBUG is defined."
+    },
+    {
+      "type": "commit",
+      "time": 1559568855000,
+      "time spent": 12,
+      "content": "    bpo-26219: remove unused code (GH-13775)\n    \n    This code was for deoptimization, which is removed from\n    PR-12884."
+    },
+    {
+      "type": "commit",
+      "time": 1559565058000,
+      "time spent": 86,
+      "content": "    bpo-26219: per opcode cache for LOAD_GLOBAL (GH-12884)\n    \n    This patch implements per opcode cache mechanism, and use it in\n    only LOAD_GLOBAL opcode.\n    \n    Based on Yury's opcache3.patch in bpo-26219."
+    }
+  ],
+  "brandtbucher@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561651857000,
+      "time spent": 117,
+      "content": "    closes bpo-37420: Handle errors during iteration in os.sched_setaffinity. (GH-14414)"
+    },
+    {
+      "type": "commit",
+      "time": 1561575978000,
+      "time spent": 1,
+      "content": "    bpo-37417: Fix error handling in bytearray.extend. (GH-14407)"
+    }
+  ],
+  "andrew.svetlov@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561635527000,
+      "time spent": 113,
+      "content": "    Replace deprecation warning with RuntimeError (GH-14397)"
+    },
+    {
+      "type": "commit",
+      "time": 1561394848000,
+      "time spent": 109,
+      "content": "    Get rid of exception traceback printing in asyncio tests (GH-14343)"
+    },
+    {
+      "type": "commit",
+      "time": 1560596735000,
+      "time spent": 85,
+      "content": "    Use threadpool for reading from file in sendfile fallback mode (#14076)"
+    },
+    {
+      "type": "commit",
+      "time": 1560596708000,
+      "time spent": 76,
+      "content": "    bpo-37279: Fix asyncio sendfile support when  extra data are sent in fallback mode. (GH-14075)"
+    },
+    {
+      "type": "commit",
+      "time": 1560525984000,
+      "time spent": 33,
+      "content": "    bpo-35998: Avoid TimeoutError in test_asyncio: test_start_tls_server_1() (GH-14080)"
+    },
+    {
+      "type": "commit",
+      "time": 1560365423000,
+      "time spent": 55,
+      "content": "    Make asyncio stream sendfile fail on error (was hang) (GH-14025)"
+    },
+    {
+      "type": "commit",
+      "time": 1560266850000,
+      "time spent": 41,
+      "content": "    bpo-36607: Eliminate RuntimeError raised by asyncio.all_tasks() (GH-13971)\n    \n    \n    \n    If internal tasks weak set is changed by another thread during iteration.\n    \n    \n    \n    https://bugs.python.org/issue36607"
+    },
+    {
+      "type": "commit",
+      "time": 1559655884000,
+      "time spent": 10,
+      "content": "    bpo-37142: Make asyncio stream tests more robust again (GH-13804)\n    \n    Make test_stream_server_close() implementation following test_stream_server_abort().\n     Add explicit timeout for tests that can hang."
+    },
+    {
+      "type": "commit",
+      "time": 1559648230000,
+      "time spent": 23,
+      "content": "    Make StreamServer.close() tests more robust (GH-13790)"
+    },
+    {
+      "type": "commit",
+      "time": 1559606959000,
+      "time spent": 84,
+      "content": "    Revert \"bpo-35621: Support running subprocesses in asyncio when loop is executed in non-main thread (#13630)\" (GH-13793)\n    \n    \n    \n    https://bugs.python.org/issue35621"
+    },
+    {
+      "type": "commit",
+      "time": 1559515554000,
+      "time spent": 54,
+      "content": "    bpo-35621: Fix tests when SafeChildWatcher is expected instead of ThreadedChildWatcher (GH-13754)\n    \n    \n    \n    https://bugs.python.org/issue35621"
+    },
+    {
+      "type": "commit",
+      "time": 1559472998000,
+      "time spent": 116,
+      "content": "    bpo-35621: Support running subprocesses in asyncio when loop is executed in non-main thread (#13630)"
+    }
+  ],
+  "carl@bordum.dk": [
+    {
+      "type": "commit",
+      "time": 1561590798000,
+      "time spent": 3,
+      "content": "    bpo-37376: pprint support for SimpleNamespace (GH-14318)\n    \n    \n    \n    https://bugs.python.org/issue37376"
+    }
+  ],
+  "zspytz@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561582460000,
+      "time spent": 98,
+      "content": "    bpo-37419: Fix possible segfaults when passing large sequences to os.posix_spawn() (GH-14409)\n    \n    Use Py_ssize_t instead of int for i."
+    },
+    {
+      "type": "commit",
+      "time": 1561445386000,
+      "time spent": 109,
+      "content": "    bpo-37393: Fix deprecation warnings in test_ntpath. (GH-14357)\n    \n    eval() was being called an extra time without a filter for\n    deprecation warnings."
+    },
+    {
+      "type": "commit",
+      "time": 1561131119000,
+      "time spent": 72,
+      "content": "    bpo-37316: mmap.mmap() passes the wrong variable to PySys_Audit() (GH-14152)\n    \n    Also, add a missing call to va_end() in PySys_Audit()."
+    },
+    {
+      "type": "commit",
+      "time": 1560755834000,
+      "time spent": 49,
+      "content": "    bpo-37267: Do not check for FILE_TYPE_CHAR in os.dup() on Windows (GH-14051)\n    \n    On Windows, os.dup() no longer creates an inheritable fd when handling a\n    character file."
+    },
+    {
+      "type": "commit",
+      "time": 1560527639000,
+      "time spent": 70,
+      "content": "    bpo-19865: ctypes.create_unicode_buffer() supports non-BMP strings on Windows (GH-14081)"
+    },
+    {
+      "type": "commit",
+      "time": 1559853563000,
+      "time spent": 67,
+      "content": "    bpo-37170: Fix the cast on error in PyLong_AsUnsignedLongLongMask() (GH-13860)"
+    },
+    {
+      "type": "commit",
+      "time": 1559727207000,
+      "time spent": 76,
+      "content": "    bpo-34767: Do not always create a collections.deque() in asyncio.Lock() (GH-13834)\n    \n    \n    \n    https://bugs.python.org/issue34767"
+    },
+    {
+      "type": "commit",
+      "time": 1559423266000,
+      "time spent": 104,
+      "content": "    Fix the error handling in bytesio_sizeof(). (GH-10459)\n    \n    bytesio_sizeof() must check if an error has occurred in _PySys_GetSizeOf()."
+    }
+  ],
+  "maxking@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561579982000,
+      "time spent": 108,
+      "content": "    bpo-29412: Fix indexError when parsing a header value ending unexpectedly (GH-14387)\n    \n    * patched string index out of range error in get_word function of _header_value_parser.py and created tests in test__header_value_parser.py for CFWS.\n    * Raise HeaderParseError instead of continuing when parsing a word."
+    },
+    {
+      "type": "commit",
+      "time": 1561482199000,
+      "time spent": 25,
+      "content": "    bpo-33972: Fix EmailMessage.iter_attachments raising AttributeError. (GH-14119)\n    \n    * bpo-33972: Fix EmailMessage.iter_attachments raising AttributeError.\n    \n    When certain malformed messages have content-type set to 'mulitpart/*' but\n    still have a single part body, iter_attachments can raise AttributeError. This\n    patch fixes it by returning a None value instead when the body is single part."
+    },
+    {
+      "type": "commit",
+      "time": 1559753793000,
+      "time spent": 100,
+      "content": "    bpo-21315: Fix parsing of encoded words with missing leading ws. (#13425)\n    \n    * bpo-21315: Fix parsing of encoded words with missing leading ws.\n    \n    Because of missing leading whitespace, encoded word would get parsed as\n    unstructured token. This patch fixes that by looking for encoded words when\n    splitting tokens with whitespace.\n    \n    Missing trailing whitespace around encoded word now register a defect\n    instead.\n    \n    Original patch suggestion by David R. Murray on bpo-21315."
+    },
+    {
+      "type": "commit",
+      "time": 1559671247000,
+      "time spent": 46,
+      "content": "    bpo-30835: email: Fix AttributeError when parsing invalid CTE (GH-13598)\n    \n    * bpo-30835: email: Fix AttributeError when parsing invalid Content-Transfer-Encoding\n    \n    Parsing an email containing a multipart Content-Type, along with a\n    Content-Transfer-Encoding containing an invalid (non-ASCII-decodable) byte\n    will fail. email.feedparser.FeedParser._parsegen() gets the header and\n    attempts to convert it to lowercase before comparing it with the accepted\n    encodings, but as the header contains an invalid byte, it's returned as a\n    Header object rather than a str.\n    \n    Cast the Content-Transfer-Encoding header to a str to avoid this.\n    \n    Found using the AFL fuzzer.\n    \n    Reported-by: Daniel Axtens <dja@axtens.net>\n    Signed-off-by: Andrew Donnellan <andrew@donnellan.id.au>\n    \n    * Add email and NEWS entry for the bugfix."
+    },
+    {
+      "type": "commit",
+      "time": 1559670094000,
+      "time spent": 3,
+      "content": "    bpo-35805: Add parser for Message-ID email header. (GH-13397)\n    \n    * bpo-35805: Add parser for Message-ID header.\n    \n    This parser is based on the definition of Identification Fields from RFC 5322\n    Sec 3.6.4.\n    \n    This should also prevent folding of Message-ID header using RFC 2047 encoded\n    words and hence fix bpo-35805.\n    \n    * Prevent folding of non-ascii message-id headers.\n    * Add fold method to MsgID token to prevent folding."
+    }
+  ],
+  "storchaka@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561565264000,
+      "time spent": 39,
+      "content": "    bpo-37163: Make the obj argument of dataclasses.replace() a positional-only. (GH-14390)"
+    },
+    {
+      "type": "commit",
+      "time": 1561452858000,
+      "time spent": 86,
+      "content": "    bpo-24214: Fixed the UTF-8 and UTF-16 incremental decoders. (GH-14304)\n    \n    * The UTF-8 incremental decoders fails now fast if encounter\n      a sequence that can't be handled by the error handler.\n    * The UTF-16 incremental decoders with the surrogatepass error\n      handler decodes now a lone low surrogate with final=False."
+    },
+    {
+      "type": "commit",
+      "time": 1560779912000,
+      "time spent": 50,
+      "content": "    bpo-35431: Test math.comb() and math.perm() for OverflowError only on CPython. (GH-14146)\n    \n    Other implementation can raise MemoryError, but it can takes hours."
+    },
+    {
+      "type": "commit",
+      "time": 1560779847000,
+      "time spent": 87,
+      "content": "    bpo-37315: Deprecate accepting floats in math.factorial(). (GH-14147)"
+    },
+    {
+      "type": "commit",
+      "time": 1560162952000,
+      "time spent": 3,
+      "content": "    Do not use explicit inheritance from object in the documentation. (GH-13936)"
+    },
+    {
+      "type": "commit",
+      "time": 1559748151000,
+      "time spent": 7,
+      "content": "    [3.9] bpo-37116: Use PEP 570 syntax for positional-only parameters. (GH-12620)\n    \n    Turn deprecation warnings added in 3.8 into TypeError."
+    },
+    {
+      "type": "commit",
+      "time": 1559463409000,
+      "time spent": 37,
+      "content": "    bpo-37128: Add math.perm(). (GH-13731)"
+    },
+    {
+      "type": "commit",
+      "time": 1559455439000,
+      "time spent": 47,
+      "content": "    Add more tests for preserving identity in marshal. (GH-13736)"
+    },
+    {
+      "type": "commit",
+      "time": 1559423148000,
+      "time spent": 66,
+      "content": "    bpo-20092. Use __index__ in constructors of int, float and complex. (GH-13108)"
+    },
+    {
+      "type": "commit",
+      "time": 1559416142000,
+      "time spent": 50,
+      "content": "    bpo-35431: Refactor math.comb() implementation. (GH-13725)\n    \n    * Fixed some bugs.\n    * Added support for index-likes objects.\n    * Improved error messages.\n    * Cleaned up and optimized the code.\n    * Added more tests."
+    },
+    {
+      "type": "commit",
+      "time": 1559378304000,
+      "time spent": 69,
+      "content": "    Use more PEP 570 syntax in the documentation. (GH-13720)"
+    },
+    {
+      "type": "commit",
+      "time": 1559376015000,
+      "time spent": 74,
+      "content": "    bpo-37116: Use PEP 570 syntax for positional-only parameters. (GH-13700)"
+    }
+  ],
+  "pierreglaser@msn.com": [
+    {
+      "type": "commit",
+      "time": 1561501817000,
+      "time spent": 18,
+      "content": "    bpo-37244: Fix test_multiprocessing.test_resource_tracker() (GH-14288)\n    \n    Increase robustness of test_resource_tracker(): retry for 60 seconds."
+    },
+    {
+      "type": "commit",
+      "time": 1561495451000,
+      "time spent": 26,
+      "content": "    bpo-36888, test_multiprocessing: Increase test_parent_process timeout (GH-14286)"
+    }
+  ],
+  "tir.karthi@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561465015000,
+      "time spent": 61,
+      "content": "    bpo-37392: Update the dir(sys) in module tutorial (GH-14365)"
+    },
+    {
+      "type": "commit",
+      "time": 1561400218000,
+      "time spent": 109,
+      "content": "    bpo-36889: Document asyncio Stream and StreamServer (GH-14203)"
+    },
+    {
+      "type": "commit",
+      "time": 1561199126000,
+      "time spent": 83,
+      "content": "    bpo-37323: Suppress DeprecationWarning raised by @asyncio.coroutine (GH-14293)\n    \n    \n    \n    When the test is ran with `PYTHONWARNINGS=error` the environment variable is passed to the python interpreter used in `assert_python_ok` where `DeprecationWarning` from  `@asyncio.coroutine` is converted into an error. Ignore the `DeprecationWarning` in `assert_python_ok`.\n    \n    \n    https://bugs.python.org/issue37323"
+    },
+    {
+      "type": "commit",
+      "time": 1559535675000,
+      "time spent": 55,
+      "content": "    IDLE: Fix typos in docs and comments (GH-13749)"
+    },
+    {
+      "type": "commit",
+      "time": 1559517153000,
+      "time spent": 101,
+      "content": "    Fix typos in docs and docstrings (GH-13745)"
+    }
+  ],
+  "Pablogsal@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561460123000,
+      "time spent": 109,
+      "content": "    Fix minor spelling error in What's new for Python 3.8 (GH-14371)"
+    },
+    {
+      "type": "commit",
+      "time": 1561427610000,
+      "time spent": 16,
+      "content": "    bpo-37394: Fix pure Python implementation of the queue module (GH-14351)"
+    },
+    {
+      "type": "commit",
+      "time": 1561426918000,
+      "time spent": 114,
+      "content": "    bpo-35224: Add What's new entry for evaluation order in dict comprehensions (GH-14319)"
+    },
+    {
+      "type": "commit",
+      "time": 1561305608000,
+      "time spent": 14,
+      "content": "    bpo-35224: Bump the pyc magic number by 1 instead of by 10 in last modification (GH-14320)"
+    },
+    {
+      "type": "commit",
+      "time": 1561243654000,
+      "time spent": 103,
+      "content": "    bpo-35224: Bump the pyc magic number after the change in MAP_ADD (GH-14313)"
+    },
+    {
+      "type": "commit",
+      "time": 1561065423000,
+      "time spent": 5,
+      "content": "    bpo-37289: Add a test for if with ifexpr in the peephole optimiser to detect regressions (GH-14127)"
+    },
+    {
+      "type": "commit",
+      "time": 1560610680000,
+      "time spent": 6,
+      "content": "    bpo-37289: Remove 'if False' handling in the peephole optimizer (GH-14099)"
+    },
+    {
+      "type": "commit",
+      "time": 1560491693000,
+      "time spent": 105,
+      "content": "    bpo-37269: Correctly optimise conditionals with constant booleans (GH-14071)\n    \n    Fix a regression introduced by af8646c8054d0f4180a2013383039b6a472f9698 that was causing code of the form:\n    \n    if True and False:\n       do_something()\n    \n    to be optimized incorrectly, eliminating the block."
+    },
+    {
+      "type": "commit",
+      "time": 1560449782000,
+      "time spent": 70,
+      "content": "    bpo-37213: Handle negative line deltas correctly in the peephole optimizer (GH-13969)\n    \n    The peephole optimizer was not optimizing correctly bytecode after negative deltas were introduced. This is due to the fact that some special values (255) were being searched for in both instruction pointer delta and line number deltas."
+    },
+    {
+      "type": "commit",
+      "time": 1559864321000,
+      "time spent": 53,
+      "content": "    bpo-37134: Add PEP570 notation to the signature of byte{array}.translate (GH-13874)"
+    },
+    {
+      "type": "commit",
+      "time": 1559776306000,
+      "time spent": 98,
+      "content": "    bpo-37134: Use PEP570 syntax for sum() (GH-13851)"
+    },
+    {
+      "type": "commit",
+      "time": 1559766268000,
+      "time spent": 34,
+      "content": "    bpo-37134: Add PEP570 notation to the documentation (GH-13743)"
+    },
+    {
+      "type": "commit",
+      "time": 1559643980000,
+      "time spent": 24,
+      "content": "    bpo-37148: Fix asyncio test that check for warning when running the test suite with huntleaks (GH-13800)"
+    },
+    {
+      "type": "commit",
+      "time": 1559547260000,
+      "time spent": 42,
+      "content": "    bpo-35814: Allow unpacking in r.h.s of annotated assignment expressions (GH-13760)"
+    },
+    {
+      "type": "commit",
+      "time": 1559508769000,
+      "time spent": 10,
+      "content": "    Call PyObject_GC_UnTrack in structseq dealloc (GH-13751)"
+    },
+    {
+      "type": "commit",
+      "time": 1559507781000,
+      "time spent": 47,
+      "content": "    bpo-37124: Fix reference leak in test_msilib (GH-13750)"
+    },
+    {
+      "type": "commit",
+      "time": 1559486713000,
+      "time spent": 106,
+      "content": "    bpo-37126: Allow structseq objects to be tracked by the GC (GH-13729)"
+    },
+    {
+      "type": "commit",
+      "time": 1559420328000,
+      "time spent": 42,
+      "content": "    bpo-36842: Pass positional only parameters to code_new audit hook (GH-13707)"
+    },
+    {
+      "type": "commit",
+      "time": 1559419328000,
+      "time spent": 113,
+      "content": "    Fix compiler warnings in the pystrehex module (GH-13730)"
+    },
+    {
+      "type": "commit",
+      "time": 1559408884000,
+      "time spent": 24,
+      "content": "    bpo-37122: Make co->co_argcount represent the total number of positonal arguments in the code object (GH-13726)"
+    }
+  ],
+  "rhettinger@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561430362000,
+      "time spent": 67,
+      "content": "     bpo-36546: Mark first argument as position only (GH-14363)"
+    },
+    {
+      "type": "commit",
+      "time": 1560240924000,
+      "time spent": 24,
+      "content": "    bpo-37219: Remove erroneous optimization for differencing an empty set (GH-13965)"
+    },
+    {
+      "type": "commit",
+      "time": 1560009491000,
+      "time spent": 58,
+      "content": "    bpo-37178: Allow a one argument form of math.perm() (GH-13905)"
+    },
+    {
+      "type": "commit",
+      "time": 1559775925000,
+      "time spent": 20,
+      "content": "    bpo-37165: Convert _count_elements to the argument clinic (GH-13848)"
+    },
+    {
+      "type": "commit",
+      "time": 1559745578000,
+      "time spent": 54,
+      "content": "    bpo-37158: Simplify and speed-up statistics.fmean() (GH-13832)"
+    },
+    {
+      "type": "commit",
+      "time": 1559644823000,
+      "time spent": 86,
+      "content": "    Fix grammar (GH-13801)"
+    },
+    {
+      "type": "commit",
+      "time": 1559636586000,
+      "time spent": 71,
+      "content": "    bpo-35431: Drop the k <= n requirement (GH-13798)"
+    },
+    {
+      "type": "commit",
+      "time": 1559534863000,
+      "time spent": 118,
+      "content": "    bpo-36546: Add design notes to aid future discussions (GH-13769)"
+    },
+    {
+      "type": "commit",
+      "time": 1559426506000,
+      "time spent": 105,
+      "content": "    Put math.comb() docs is correct place alphabetically (GH-13734)"
+    }
+  ],
+  "david_k_hess@mac.com": [
+    {
+      "type": "commit",
+      "time": 1561420019000,
+      "time spent": 27,
+      "content": "    bpo-4963: Fix for initialization and non-deterministic behavior issues in mimetypes (GH-3062)"
+    }
+  ],
+  "animalize@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561419806000,
+      "time spent": 10,
+      "content": "    bpo-25361: Enable SSE2 instructions for Windows 32-bit build (GH-12438)"
+    },
+    {
+      "type": "commit",
+      "time": 1561418534000,
+      "time spent": 67,
+      "content": "    bpo-35360: Update Windows builds to use SQLite 3.28.0 (GH-14179)"
+    },
+    {
+      "type": "commit",
+      "time": 1560849919000,
+      "time spent": 17,
+      "content": "    bpo-35360: Update macOS installer to use SQLite 3.28.0 (GH-14180)"
+    }
+  ],
+  "zihenglv@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561399191000,
+      "time spent": 111,
+      "content": "    bpo-32627: Fix compile error when conflicting `_uuid` headers included (GH-11751)"
+    }
+  ],
+  "gabe@gabeappleton.me": [
+    {
+      "type": "commit",
+      "time": 1561370336000,
+      "time spent": 102,
+      "content": "    bpo-37345: Add formal UDPLITE support (GH-14258)\n    \n    \n    \n    At the moment you can definitely use UDPLITE sockets on Linux systems, but it would be good if this support were formalized such that you can detect support at runtime easily.\n    \n    At the moment, to make and use a UDPLITE socket requires something like the following code:\n    \n    ```\n    >>> import socket\n    >>> a = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 136)\n    >>> b = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 136)\n    >>> a.bind(('localhost', 44444))\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.setsockopt(136, 10, 16)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.setsockopt(136, 10, 32)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.setsockopt(136, 10, 64)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    ```\n    \n    If you look at this through Wireshark, you can see that the packets are different in that the checksums and checksum coverages change.\n    \n    With the pull request that I am submitting momentarily, you could do the following code instead:\n    \n    ```\n    >>> import socket\n    >>> a = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDPLITE)\n    >>> b = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDPLITE)\n    >>> a.bind(('localhost', 44444))\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.set_send_checksum_coverage(16)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.set_send_checksum_coverage(32)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    >>> b.set_send_checksum_coverage(64)\n    >>> b.sendto(b'test'*256, ('localhost', 44444))\n    ```\n    \n    One can also detect support for UDPLITE just by checking\n    \n    ```\n    >>> hasattr(socket, 'IPPROTO_UDPLITE')\n    ```\n    \n    \n    https://bugs.python.org/issue37345"
+    }
+  ],
+  "ben@bendarnell.com": [
+    {
+      "type": "commit",
+      "time": 1561225101000,
+      "time spent": 45,
+      "content": "    asyncio: Fix docs for default event loop (#14308)\n    \n    When the Windows default event loop changed, `asyncio-policy.rst` was updated but `asyncio-eventloop.rst` was missed."
+    }
+  ],
+  "joernheissler@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561214455000,
+      "time spent": 84,
+      "content": "    bpo-35224: Reverse evaluation order of key: value in dict comprehensions (GH-14139)\n    \n    \n    \n    \u0393\u00c7\u00aa as proposed in PEP 572; key is now evaluated before value.\n    \n    \n    \n    \n    \n    https://bugs.python.org/issue35224"
+    }
+  ],
+  "mbarkhau@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561207866000,
+      "time spent": 93,
+      "content": "    Improve threading.daemon docstring (GH-14278)\n    \n    \n    \n    Rephrase and clarify that \"the entire Python program exits when only daemon threads are left\". This matches the documentation at https://docs.python.org/3/library/threading.html#thread-objects."
+    }
+  ],
+  "brad.solomon.1124@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561141221000,
+      "time spent": 87,
+      "content": "    Use `python -m pip install` in porting guide and venv docs (GH-13257)\n    \n    This is to help prevent people from accidentally installing into the wrong Python interpreter if they are not aware of which Python interpreter `pip` points to."
+    }
+  ],
+  "33177550+nanjekyejoannah@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561141020000,
+      "time spent": 86,
+      "content": "    bpo-30202 : Update test.test_importlib.test_abc to test find_spec() (GH-12847)"
+    }
+  ],
+  "paulmon@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561135205000,
+      "time spent": 5,
+      "content": "    bpo-36511: Fix -u parameters for ARM32 tests (GH-14280)"
+    },
+    {
+      "type": "commit",
+      "time": 1561048412000,
+      "time spent": 70,
+      "content": "    bpo-36511: Improve ARM32 buildbot scripts (GH-14251)"
+    },
+    {
+      "type": "commit",
+      "time": 1560974994000,
+      "time spent": 16,
+      "content": "    bpo-36511: Add buildbot scripts and fix tests for Windows ARM32 buildbot (GH-13454)"
+    },
+    {
+      "type": "commit",
+      "time": 1560784888000,
+      "time spent": 93,
+      "content": "    bpo-37288: Fix Windows build when --no-tkinter is specified (GH-14096)"
+    },
+    {
+      "type": "commit",
+      "time": 1560381207000,
+      "time spent": 75,
+      "content": "    bpo-36779: time.tzname returns empty string on Windows if default cod\u0393\u00c7\u00aa (GH-13073)\n    \n    \n    \n    Calling setlocale(LC_CTYPE, \"\") on a system where GetACP() returns CP_UTF8 results in empty strings in _tzname[].\n    \n    This causes time.tzname to be an empty string.\n    I have reported the bug to the UCRT team and will follow up, but it will take some time get a fix into production.\n    \n    In the meantime one possible workaround is to temporarily change the locale by calling setlocale(LC_CTYPE, \"C\") before calling _tzset and restore the current locale after if the GetACP() == CP_UTF8 or CP_UTF7\n    \n    @zooba\n    \n    \n    https://bugs.python.org/issue36779"
+    },
+    {
+      "type": "commit",
+      "time": 1560362920000,
+      "time spent": 43,
+      "content": "    bpo-37236: pragma optimize off for _Py_c_quot on Windows arm64 (GH-13983)"
+    },
+    {
+      "type": "commit",
+      "time": 1560359809000,
+      "time spent": 75,
+      "content": "    bpo-37201: fix test_distutils failures for Windows ARM64 (GH-13902)"
+    },
+    {
+      "type": "commit",
+      "time": 1560290597000,
+      "time spent": 96,
+      "content": "    bpo-37238: Enable building for Windows using Visual Studio 2019 (GH-13988)"
+    },
+    {
+      "type": "commit",
+      "time": 1559930321000,
+      "time spent": 116,
+      "content": "    bpo-37181: Fix test_regrtest failures on Windows arm64 (GH-13872)"
+    }
+  ],
+  "aixtools@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561125480000,
+      "time spent": 116,
+      "content": "    bpo-36210: update optional extension handling for AIX (GH-12202)\n    \n    * Switch to officially supported curses from 3rd-party ASIS supported ncurses\n    * stop saying optional modules osaudiodev and spwd are missing on AIX\n    \n    Patch by M.Felt"
+    },
+    {
+      "type": "commit",
+      "time": 1560613949000,
+      "time spent": 71,
+      "content": "    bpo-28009: Fix uuid SkipUnless logic to be based on platform programs capable of introspection (GH-12777)\n    \n    uuid could try fallback methods that had no chance of working on a particular\n    platform, and this could cause spurious test failures, as well as degraded\n    performance as fallback options were tried and failed.\n    \n    This fixes both the uuid module and its test's SkipUnless logic to use a\n    prefiltered list of techniques that may at least potentially work on that platform.\n    \n    Patch by Michael Felt (aixtools)."
+    },
+    {
+      "type": "commit",
+      "time": 1560465286000,
+      "time spent": 69,
+      "content": "    bpo-37077: Add native thread ID (TID) for AIX (GH-13624)\n    \n    \n    \n    This is the followup  for issue36084\n    \n    \n    \n    https://bugs.python.org/issue37077"
+    },
+    {
+      "type": "commit",
+      "time": 1560340856000,
+      "time spent": 72,
+      "content": "    bpo-35545: Skip `test_asyncio.test_create_connection_ipv6_scope` on AIX (GH-14011)\n    \n    \n    \n    because \"getaddrinfo()\" behaves different on AIX\n    \n    \n    \n    \n    \n    https://bugs.python.org/issue35545"
+    }
+  ],
+  "shashank201101193@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561086142000,
+      "time spent": 58,
+      "content": "    Remove redundant if check from optional argument function in argparse. (GH-8766)"
+    }
+  ],
+  "arilik.ismail@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1561041055000,
+      "time spent": 89,
+      "content": "    Fix typo, 'widger' -> 'widget', in idlelib/tree.py (GH-14263)"
+    }
+  ],
+  "ericvsmith@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1561018948000,
+      "time spent": 34,
+      "content": "    Fix bpo number in News file. (GH-14260)"
+    }
+  ],
+  "Harmon758@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560978087000,
+      "time spent": 41,
+      "content": "    Add missing single quote in io.TextIOWrapper.reconfigure documentation (GH-14246)\n    \n    \n    \n    Add a missing single quote character in the documentation for `io.TextIOWrapper.reconfigure`."
+    }
+  ],
+  "vinay_sajip@yahoo.co.uk": [
+    {
+      "type": "commit",
+      "time": 1560954597000,
+      "time spent": 102,
+      "content": "    bpo-37331: Clarify format of socket handler messages in the documentation. (GH-14234)"
+    },
+    {
+      "type": "commit",
+      "time": 1560941213000,
+      "time spent": 9,
+      "content": "    bpo-37258: Not a bug, but added a unit test and updated documentation. (GH-14229)"
+    },
+    {
+      "type": "commit",
+      "time": 1560789652000,
+      "time spent": 45,
+      "content": "    bpo-37111: Add 'encoding' and 'errors' parameters to logging.basicCon\u0393\u00c7\u00aa (GH-14008)"
+    }
+  ],
+  "levkivskyi@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560904311000,
+      "time spent": 29,
+      "content": "    Document typing.ForwardRef (GH-14216)"
+    },
+    {
+      "type": "commit",
+      "time": 1560903467000,
+      "time spent": 88,
+      "content": "    Document changes in PyNode_AddChild and PyParser_AddToken (GH-14214)\n    \n    I didn't find any entries in the docs about these functions, so I just mentioned them, in \"What's New\"."
+    },
+    {
+      "type": "commit",
+      "time": 1559644666000,
+      "time spent": 53,
+      "content": "    More updates to the annotated assignments docs (GH-13794)"
+    },
+    {
+      "type": "commit",
+      "time": 1559518860000,
+      "time spent": 114,
+      "content": "    Update the annotated assignment docs (GH-13757)"
+    }
+  ],
+  "tjreedy@udel.edu": [
+    {
+      "type": "commit",
+      "time": 1560892104000,
+      "time spent": 58,
+      "content": "    bpo-37325: Fix focus traversal for 2 IDLE dialogs (#14209)\n    \n    Tab now moves focus across and down for Help Source and Custom Run."
+    },
+    {
+      "type": "commit",
+      "time": 1560806608000,
+      "time spent": 104,
+      "content": "     bpo-37321: Edit IDLE subprocess connection error messages. (#14170)\n    \n    Mainly, add a doc reference to message in pyshell."
+    },
+    {
+      "type": "commit",
+      "time": 1560717236000,
+      "time spent": 50,
+      "content": "    bpo-37220: Fix 2.7 test -R crash on Windows. (GH-13957)\n    \n    The patch needed for 2.7 should make the test more stable on 3.x also."
+    },
+    {
+      "type": "commit",
+      "time": 1559699737000,
+      "time spent": 71,
+      "content": "     bpo-35763: Make IDLE calltip note about '/' less obtrusive (GH-13791)\n    \n    Add it to the end of the first line if there is room.  Tests were reworked."
+    }
+  ],
+  "pganssle@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1560884265000,
+      "time spent": 41,
+      "content": "    Add pganssle to CODEOWNERS and ACKS (GH-14138)\n    \n    Also adds abalkin to CODEOWNERS for date and time related files."
+    }
+  ],
+  "mike.gleen@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560881697000,
+      "time spent": 33,
+      "content": "    bpo-34903: Document that some strptime formats only require 1 digit (GH-14149)\n    \n    For datetime.datetime.strptime(), the leading zero for some two-digit formats is optional.\n    \n    This adds a footnote to the strftime/strptime documentation to reflect this fact, and adds some tests to ensure that it is true.\n    \n    bpo-34903"
+    }
+  ],
+  "nad@python.org": [
+    {
+      "type": "commit",
+      "time": 1560847033000,
+      "time spent": 64,
+      "content": "    bpo-35031: also disable TLS 1.3 for test_start_tls_server_1 on macOS (GH-14188)"
+    },
+    {
+      "type": "commit",
+      "time": 1560845853000,
+      "time spent": 13,
+      "content": "    bpo-34631: Updated OpenSSL to 1.1.1c in macOS installer (GH-14187)"
+    },
+    {
+      "type": "commit",
+      "time": 1560396705000,
+      "time spent": 34,
+      "content": "    Add 3.9 whatsnew file (GH-14040)"
+    },
+    {
+      "type": "commit",
+      "time": 1559563225000,
+      "time spent": 89,
+      "content": "    Pin macOS installer Sphinx to v2.0.1 (GH-13774)"
+    },
+    {
+      "type": "commit",
+      "time": 1559558088000,
+      "time spent": 4,
+      "content": "    bpo-36231:  Support building on macOS without /usr/include (GH-13773)"
+    }
+  ],
+  "dcarlier@afilias.info": [
+    {
+      "type": "commit",
+      "time": 1560839794000,
+      "time spent": 33,
+      "content": "    remove dead code (GH-14104)\n    \n    default case ought to handle the \"unexpected\"."
+    },
+    {
+      "type": "commit",
+      "time": 1560353876000,
+      "time spent": 68,
+      "content": "    bpo-37160: Thread native ID NetBSD support (GH-13835)"
+    },
+    {
+      "type": "commit",
+      "time": 1559576613000,
+      "time spent": 26,
+      "content": "    bpo-37087: Adding native ID support for OpenBSD (GH-13654)"
+    }
+  ],
+  "cheryl.sabella@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560824650000,
+      "time spent": 43,
+      "content": "    bpo-5680: IDLE: Customize running a module (GH-13763)\n    \n    The initialize options are 1) add command line options, which are appended to sys.argv as if passed on a real command line, and 2) skip the shell restart. The customization dialog is accessed by a new entry on the Run menu."
+    },
+    {
+      "type": "commit",
+      "time": 1559898500000,
+      "time spent": 51,
+      "content": "    IDLE: Standardize naming convention for DummyEditwin in tests (GH-13876)\n    \n    * Change from Dummy_Editwin to DummyEditwin to match other tests."
+    },
+    {
+      "type": "commit",
+      "time": 1559501807000,
+      "time spent": 70,
+      "content": "    bpo-35610: IDLE - Replace .context_use_ps1 with .prompt_last_line (GH-11307)\n    \n    Changes in bpo- 31858 made the less informative 'context_use_ps1' redundant."
+    },
+    {
+      "type": "commit",
+      "time": 1559423002000,
+      "time spent": 88,
+      "content": "    bpo-32411: IDLE: Remove line number sort in browser.py (#5011)\n    \n    Insertion in line order makes sorting keys by line order unneeded."
+    }
+  ],
+  "taleinat+github@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560800460000,
+      "time spent": 18,
+      "content": "    bpo-37039: Make IDLE's Zoom Height adjust to users' screens (GH-13678)\n    \n    Measure required height by quickly maximizing once per screen.\n    A search for a better method failed."
+    }
+  ],
+  "cooper@fb.com": [
+    {
+      "type": "commit",
+      "time": 1560795494000,
+      "time spent": 77,
+      "content": "    bpo-34556: Add --upgrade-deps to venv module (#13100)\n    \n    Add --upgrade-deps to venv module\n    - This allows for pip + setuptools to be automatically upgraded to the latest version on PyPI\n    - Update documentation to represent this change\n    \n    bpo-34556: Add --upgrade to venv module"
+    }
+  ],
+  "vlabakje@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560759017000,
+      "time spent": 116,
+      "content": "    bpo-36688: Adding an implementation of RLock in _dummy_thread (GH-12943)"
+    }
+  ],
+  "dickinsm@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560704001000,
+      "time spent": 38,
+      "content": "    Turn math.isqrt assertion into a comment to clarify its purpose. (GH-14131)"
+    },
+    {
+      "type": "commit",
+      "time": 1560679566000,
+      "time spent": 93,
+      "content": "    Simplify negativity checks in math.comb and math.perm. (GH-13870)"
+    }
+  ],
+  "julien@palard.fr": [
+    {
+      "type": "commit",
+      "time": 1560673505000,
+      "time spent": 90,
+      "content": "    Doc: Remove an ugly space before a dot. (GH-14123)"
+    },
+    {
+      "type": "commit",
+      "time": 1560608497000,
+      "time spent": 65,
+      "content": "    Doc: Deprecation header: More precise wording. (GH-14109)"
+    },
+    {
+      "type": "commit",
+      "time": 1560606118000,
+      "time spent": 4,
+      "content": "    Doc: Bump Sphinx verison. (#13785)\n    \n    To reflect the one we're using in production."
+    },
+    {
+      "type": "commit",
+      "time": 1559690133000,
+      "time spent": 10,
+      "content": "    Doc: Python 3.9 in sidebar and version switcher. (GH-13824)"
+    },
+    {
+      "type": "commit",
+      "time": 1559575023000,
+      "time spent": 4,
+      "content": "    Doc fix: duplicate object description of email.message (GH-13742)"
+    }
+  ],
+  "remi.lapeyre@henki.fr": [
+    {
+      "type": "commit",
+      "time": 1560667737000,
+      "time spent": 53,
+      "content": "    bpo-35922: Fix RobotFileParser when robots.txt has no relevant crawl delay or request rate (GH-11791)\n    \n    Co-Authored-By: Tal Einat <taleinat+github@gmail.com>"
+    },
+    {
+      "type": "commit",
+      "time": 1560005784000,
+      "time spent": 93,
+      "content": "    bpo-34886: Fix subprocess.run handling of exclusive arguments (GH-11727)\n    \n    Fix an unintended ValueError from :func:`subprocess.run` when checking for\n    conflicting `input` and `stdin` or `capture_output` and `stdout` or `stderr` args\n    when they were explicitly provided but with `None` values within a passed in\n    `**kwargs` dict rather than as passed directly by name."
+    }
+  ],
+  "alex.gaynor@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560607776000,
+      "time spent": 40,
+      "content": "    Update link in colorsys docs to be https (GH-14062)"
+    }
+  ],
+  "48903745+ubordignon@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1560598990000,
+      "time spent": 30,
+      "content": "    Fix typo in Lib/concurrent/futures/thread.py (GH-13953)"
+    }
+  ],
+  "gery.ogam@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560598403000,
+      "time spent": 105,
+      "content": "    Update weakref.rst (GH-14098)"
+    },
+    {
+      "type": "commit",
+      "time": 1560523183000,
+      "time spent": 15,
+      "content": "    Update concurrent.futures.rst (GH-14061)\n    \n    \n    \n    This PR adds missing details in the [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.html) documentation:\n    \n    * the mention that `Future.cancel` also returns `False` if the call finished running;\n    * the mention of the states for `Future` that did not complete: pending or running."
+    }
+  ],
+  "makdon@makdon.me": [
+    {
+      "type": "commit",
+      "time": 1560434389000,
+      "time spent": 85,
+      "content": "    bpo-6689: os.path.commonpath raises ValueError for different drives isn't documented (GH-14045)\n    \n    \n    \n    It would raise ValueError(\"Paths don't have the same drive\") if the paths on different drivers, which is not documented.\n    \n    \n    os.path.commonpath raises ValueError when the *paths* are in different drivers, but it is not documented.\n    Update the document according @Windsooon 's suggestion.\n    It actually raise ValueError according line 355 of [test of path](https://github.com/python/cpython/blob/master/Lib/test/test_ntpath.py)\n    \n    \n    https://bugs.python.org/issue6689"
+    },
+    {
+      "type": "commit",
+      "time": 1560402253000,
+      "time spent": 77,
+      "content": "    bpo-37216: update version to 3.9 in mac using document (GH-13966)"
+    }
+  ],
+  "49998481+websurfer5@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1560409289000,
+      "time spent": 105,
+      "content": "    bpo-35070: test_getgrouplist may fail on macOS if too many groups (GH-13071)"
+    },
+    {
+      "type": "commit",
+      "time": 1559850807000,
+      "time spent": 61,
+      "content": "    bpo-36520: Email header folded incorrectly (#13608)\n    \n    * bpo-36520: reset the encoded word offset when starting a new\n    line during an email header folding operation\n    \n    * \u2261\u0192\u00f4\u00a3\u2261\u0192\u00f1\u00fb Added by blurb_it.\n    \n    * bpo-36520: add an additional test case, and provide descriptive\n    comments for the test_folding_with_utf8_encoding_* tests\n    \n    * bpo-36520: fix whitespace issue\n    \n    * bpo-36520: changes per reviewer request -- remove extraneous\n    backslashes; add whitespace between terminating quotes and\n    line-continuation backslashes; use \"bpo-\" instead of\n    \"issue #\" in comments"
+    }
+  ],
+  "tim.peters@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560397263000,
+      "time spent": 110,
+      "content": "    bpo-37257:  obmalloc:  stop simple arena thrashing (#14039)\n    \n    GH-14039:  allow (no more than) one wholly empty arena on the usable_arenas list.\n    \n    This prevents thrashing in some easily-provoked simple cases that could end up creating and destroying an arena on each loop iteration in client code.   Intuitively, if the only arena on the list becomes empty, it makes scant sense to give it back to the system unless we know we'll never need another free pool again before another arena frees a pool.  If the latter obtains, then - yes - this will \"waste\" an arena."
+    },
+    {
+      "type": "commit",
+      "time": 1559355364000,
+      "time spent": 116,
+      "content": "    bpo-37029:  keep usable_arenas in sorted order without searching (#13612)\n    \n    This adds a vector of \"search fingers\" so that usable_arenas can be kept in sorted order (by number of free pools) via constant-time operations instead of linear search.\n    \n    This should reduce worst-case time for reclaiming a great many objects from O(A**2) to O(A), where A is the number of arenas.  See bpo-37029."
+    }
+  ],
+  "aaskar@google.com": [
+    {
+      "type": "commit",
+      "time": 1560313835000,
+      "time spent": 38,
+      "content": "    bpo-29505: Fuzz json module, enforce size limit on int(x) fuzz (GH-13991)\n    \n    * bpo-29505: Enable fuzz testing of the json module, enforce size limit on int(x) fuzz and json input size to avoid timeouts.\n    \n    Contributed by by Ammar Askar for Google."
+    }
+  ],
+  "laike9m@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1560311169000,
+      "time spent": 87,
+      "content": "    bpo-32625: Updated documentation for EXTENDED_ARG. (GH-13985)\n    \n    Python 3.6 changed the size of bytecode instruction, while the documentation for `EXTENDED_ARG` was not updated accordingly."
+    }
+  ],
+  "guido@python.org": [
+    {
+      "type": "commit",
+      "time": 1560298992000,
+      "time spent": 99,
+      "content": "    bpo-35766: Change format for feature_version to (major, minor) (GH-13992)\n    \n    \n    \n    (A single int is still allowed, but undocumented.)\n    \n    \n    \n    https://bugs.python.org/issue35766"
+    },
+    {
+      "type": "commit",
+      "time": 1560285755000,
+      "time spent": 47,
+      "content": "    bpo-35766: What's new in the ast and typing modules (#13984)"
+    }
+  ],
+  "aaronpaulhurst@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560218064000,
+      "time spent": 103,
+      "content": "    closes bpo-35184: Fix XML_POOR_ENTROPY option that breaks makesetup parsing of pyexpat line in Setup. (GH-13064)\n    \n    When the line is uncommented, the equals character causes it to be incorrectly interpreted\n    as a macro definition by makesetup.  This results in invalid Makefile output.\n    \n    The expat code only requires XML_POOR_ENTROPY to be defined; the value is unnecessary."
+    }
+  ],
+  "christian@python.org": [
+    {
+      "type": "commit",
+      "time": 1560179988000,
+      "time spent": 94,
+      "content": "    bpo-37215: Fix dtrace issue introduce by bpo-36842 (GH-13940)\n    \n    \n    \n    Signed-off-by: Christian Heimes <christian@python.org>\n    \n    \n    https://bugs.python.org/issue37215"
+    },
+    {
+      "type": "commit",
+      "time": 1559588410000,
+      "time spent": 10,
+      "content": "    bpo-37120: Add SSLContext.num_tickets (GH-13719)\n    \n    Signed-off-by: Christian Heimes <christian@python.org>"
+    },
+    {
+      "type": "commit",
+      "time": 1559587887000,
+      "time spent": 13,
+      "content": "    bpo-36868: Fix what's new for SSLContext.hostname_checks_common_name (GH-13248)\n    \n    \n    \n    What's new now mentions SSLContext.hostname_checks_common_name instead of SSLContext.host_flags.\n    \n    \n    https://bugs.python.org/issue36868"
+    },
+    {
+      "type": "commit",
+      "time": 1559587215000,
+      "time spent": 39,
+      "content": "    bpo-34271: Fix compatibility with 1.0.2 (GH-13728)\n    \n    Fix various compatibility issues with LibreSSL and OpenSSL 1.0.2\n    introduced by bpo-34271.\n    \n    Signed-off-by: Christian Heimes <christian@python.org>"
+    },
+    {
+      "type": "commit",
+      "time": 1559585419000,
+      "time spent": 37,
+      "content": "    bpo-37081: Test with OpenSSL 1.1.1c (GH-13631)\n    \n    Signed-off-by: Christian Heimes <christian@python.org>"
+    }
+  ],
+  "antoine@python.org": [
+    {
+      "type": "commit",
+      "time": 1560084435000,
+      "time spent": 7,
+      "content": "    bpo-36785: PEP 574 What's New entry (#13931)"
+    }
+  ],
+  "ncoghlan@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560071262000,
+      "time spent": 67,
+      "content": "    Add some placeholder notes for major 3.8 features (GH-13927)"
+    }
+  ],
+  "marcin.niemira@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1560027906000,
+      "time spent": 73,
+      "content": "    bpo-11122: fix hardcoded path checking for rpmbuild in bdist_rpm.py (GH-10594)"
+    }
+  ],
+  "ammar@ammaraskar.com": [
+    {
+      "type": "commit",
+      "time": 1560004996000,
+      "time spent": 18,
+      "content": "    bpo-29505: Fix interpreter in fuzzing targets to be relocatable (GH-13907)"
+    }
+  ],
+  "flying-sheep@web.de": [
+    {
+      "type": "commit",
+      "time": 1559995546000,
+      "time spent": 41,
+      "content": "    bpo-37173: Show passed class in inspect.getfile error (GH-13861)\n    \n    \n    \n    Currently, inspect.getfile(str) will report nonsense:\n    \n    ```pytb\n    >>> inspect.getfile(str)\n    TypeError: <module 'builtins' (built-in)> is a built-in class\n    ```\n    \n    This fixes that\n    \n    \n    https://bugs.python.org/issue37173"
+    }
+  ],
+  "asottile@umich.edu": [
+    {
+      "type": "commit",
+      "time": 1559942619000,
+      "time spent": 90,
+      "content": "    cross port importlib-metadata PR #76 (#13903)\n    \n    https://gitlab.com/python-devs/importlib_metadata/merge_requests/76"
+    },
+    {
+      "type": "commit",
+      "time": 1559434406000,
+      "time spent": 104,
+      "content": "    Improve version added references in `typing` module docs (GH-13457)"
+    }
+  ],
+  "grrrr@protonmail.com": [
+    {
+      "type": "commit",
+      "time": 1559938116000,
+      "time spent": 12,
+      "content": "    bpo-37150: Throw ValueError if FileType class object was passed in add_argument (GH-13805)\n    \n    \n    \n    There is a possibility that someone (like me) accidentally will omit parentheses with `FileType` arguments after `FileType`, and parser will contain wrong file until someone will try to use it.\n    \n    Example:\n    ```python\n    parser = argparse.ArgumentParser()\n    parser.add_argument('-x', type=argparse.FileType)\n    ```\n    \n    \n    https://bugs.python.org/issue37150"
+    }
+  ],
+  "skrah@bytereef.org": [
+    {
+      "type": "commit",
+      "time": 1559899114000,
+      "time spent": 52,
+      "content": "    Use assertEqual(). (#13883)"
+    }
+  ],
+  "wieser.eric@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559895206000,
+      "time spent": 113,
+      "content": "    bpo-37188: Fix a divide-by-zero in arrays of size-0 objects (#13881)"
+    }
+  ],
+  "taleinat@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559886880000,
+      "time spent": 57,
+      "content": "    bpo-37177: make IDLE's search dialogs transient (GH-13869)\n    \n    This avoids the search dialogs being hidden behind the editor window."
+    }
+  ],
+  "walter@livinglogic.de": [
+    {
+      "type": "commit",
+      "time": 1559815988000,
+      "time spent": 25,
+      "content": "    bpo-2661: Make mapping tests better usable for custom mapping classes. (GH-11157)\n    \n    \n    \n    In test_fromkeys() the derived test class now supports all arguments in its\n    constructor so that the class to be tested can use its own constructor in its\n    fromkeys() implementation.\n    \n    In test_mutatingiteration() the test fails as soon as iterating over a\n    dictionary with one entry and adding new entries in the loop iterates more\n    than once (to avoid endless loops in faulty implementations).\n    \n    \n    \n    https://bugs.python.org/issue2661"
+    }
+  ],
+  "barry@python.org": [
+    {
+      "type": "commit",
+      "time": 1559788819000,
+      "time spent": 106,
+      "content": "    Add importlib.metadata to what's new. (#13855)"
+    }
+  ],
+  "aramaswamis@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559773087000,
+      "time spent": 33,
+      "content": "    bpo-35551: encodings update (GH-11446)"
+    }
+  ],
+  "bentyeh@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1559725684000,
+      "time spent": 26,
+      "content": "    Fix documentation (GH-13721)\n    \n    \n    \n    Based on the source code https://github.com/python/cpython/blob/4a686504eb2bbf69adf78077458508a7ba131667/Lib/multiprocessing/pool.py#L755 AsyncResult.successful() raises a ValueError, not an AssertionError."
+    }
+  ],
+  "emmanuelarias30@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559713553000,
+      "time spent": 84,
+      "content": "    bpo-36373:  Deprecate explicit loop parameter in all public asyncio APIs [streams] (GH-13671)\n    \n    \n    \n    This PR deprecate explicit loop parameters in all public asyncio APIs\n    \n    This issues is split to be easier to review.\n    \n    Second step: streams.py\n    \n    \n    \n    \n    \n    https://bugs.python.org/issue36373"
+    }
+  ],
+  "zach@python.org": [
+    {
+      "type": "commit",
+      "time": 1559682190000,
+      "time spent": 119,
+      "content": "    bpo-34282: Remove deprecated enum _convert method (GH-13823)"
+    },
+    {
+      "type": "commit",
+      "time": 1559681835000,
+      "time spent": 53,
+      "content": "    Bump version in AppVeyor config (#13822)"
+    }
+  ],
+  "lukasz@langa.pl": [
+    {
+      "type": "commit",
+      "time": 1559679152000,
+      "time spent": 114,
+      "content": "    Bump to 3.9.0a0"
+    },
+    {
+      "type": "commit",
+      "time": 1559670274000,
+      "time spent": 81,
+      "content": "    Python 3.8.0b1"
+    },
+    {
+      "type": "commit",
+      "time": 1559646200000,
+      "time spent": 36,
+      "content": "    Revert \"bpo-34037, asyncio: add BaseEventLoop.wait_executor_on_close (GH-13786)\" (#13802)\n    \n    This reverts commit 0f0a30f4da4b529e0f7df857b9f575b231b32758."
+    }
+  ],
+  "petter.strandmark@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559676889000,
+      "time spent": 71,
+      "content": "    bpo-35047: Update whatsnew/3.8 for better mock error message (GH-13746)"
+    }
+  ],
+  "lothiraldan@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559661618000,
+      "time spent": 1,
+      "content": "    Fix extraneous whitespace in QueueListener.prepare (GH-13803)"
+    }
+  ],
+  "mcorcherojim@bloomberg.net": [
+    {
+      "type": "commit",
+      "time": 1559661491000,
+      "time spent": 3,
+      "content": "    bpo-30699: Improve example on datetime tzinfo instances (GH-4290)\n    \n    * Improve example on tzinfo instances\n    \n    Move from GMTX to TZX when naming the classes, as GMT1 might be rather\n    confusing as seen in the reported issue.\n    In addition, move to UTC over GMT and improve the tzname implementation.\n    \n    * Simplify datetime with tzinfo example\n    \n    Move the example in the documentation to just use timezone.utc and a\n    user defined Kabul timezone rather than having two user defined\n    timezones with DST.\n    \n    Kabul timezone is still interesting as it changes its offset but not\n    based on DST. This is more accurate as the previous example was missing\n    information about the fold attribute. Additionally, implementing the fold\n    attribute was rather complex and probably not relevant enough for the\n    section \"datetime with tzinfo\"."
+    }
+  ],
+  "cclauss@me.com": [
+    {
+      "type": "commit",
+      "time": 1559531984000,
+      "time spent": 22,
+      "content": "    Fix variable name copy/paste error in build-installer.py (GH-13038)"
+    }
+  ],
+  "hack.augusto@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559528088000,
+      "time spent": 79,
+      "content": "    bpo-33569 Preserve type information with dataclasses.InitVar (GH-8927)"
+    }
+  ],
+  "bussonniermatthias@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559522602000,
+      "time spent": 89,
+      "content": "    bpo-36896: Clarify that some types constructors are unstable (GH-13271)"
+    }
+  ],
+  "encukou@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559521709000,
+      "time spent": 71,
+      "content": "    bpo-36027: Really fix \"incompatible pointer type\" compiler warning (GH-13761)\n    \n    Apologies for the earlier hasty attempt."
+    },
+    {
+      "type": "commit",
+      "time": 1559518272000,
+      "time spent": 75,
+      "content": "    bpo-37012: Clean up special cases in PyType_FromSpecWithBases slot assignments (GH-13496)\n    \n    The main slot assignment loop is now if-else if ladder, making the\n    control flow clearer.\n    \n    Based on suggestion by Victor Stinner in:\n    https://github.com/python/cpython/pull/10304/#issuecomment-491123026"
+    },
+    {
+      "type": "commit",
+      "time": 1559516894000,
+      "time spent": 109,
+      "content": "    bpo-36027 bpo-36974: Fix \"incompatible pointer type\" compiler warnings (GH-13758)"
+    },
+    {
+      "type": "commit",
+      "time": 1559512340000,
+      "time spent": 107,
+      "content": "    bpo-36974: Make tp_call=PyVectorcall_Call work for inherited types (GH-13699)\n    \n    When inheriting a heap subclass from a vectorcall class that sets\n    `.tp_call=PyVectorcall_Call` (as recommended in PEP 590), the subclass does\n    not inherit `_Py_TPFLAGS_HAVE_VECTORCALL`, and thus `PyVectorcall_Call` does\n    not work for it.\n    \n    This attempts to solve the issue by:\n    * always inheriting `tp_vectorcall_offset` unless `tp_call` is overridden\n      in the subclass\n    * inheriting _Py_TPFLAGS_HAVE_VECTORCALL for static types, unless `tp_call`\n      is overridden\n    * making `PyVectorcall_Call` ignore `_Py_TPFLAGS_HAVE_VECTORCALL`\n    \n    This means it'll be ever more important to only call `PyVectorcall_Call`\n    on classes that support vectorcall. In `PyVectorcall_Call`'s intended role\n    as `tp_call` filler, that's not a problem."
+    },
+    {
+      "type": "commit",
+      "time": 1559509884000,
+      "time spent": 50,
+      "content": "    test_gdb.test_pycfunction: test more calling conventions (GH-13668)\n    \n    As the code paths for various METH_* conventions are diverging due\n    to optimizations, we should check they continue to be covered by\n    GDB integration."
+    }
+  ],
+  "michele.angrisano@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559511252000,
+      "time spent": 32,
+      "content": "    bpo-19184: Update the documentation of dis module. (GH-13652)\n    \n    * bpo-19184: Update the documentation of dis module\n    \n    * Explain the behavior of the number of arguments of RAISE_VARGARGS\n      opcode.\n    \n    * bpo-19184: Update blurb.\n    \n    * bpo-19184: Fix typo in the dis Documentation.\n    \n    * bpo-19184: Address review comments and improve the doc\n    \n    * bpo-19184: Remove news file."
+    },
+    {
+      "type": "commit",
+      "time": 1559509309000,
+      "time spent": 91,
+      "content": "    bpo-37014: Update docstring and Documentation of fileinput.FileInput(). (GH-13545)\n    \n    * bpo-37014: Update docstring and Documentation of fileinput.FileInput()\n    \n    * Explain the behavior of fileinput.FileInput() when reading stdin.\n    \n    * Update blurb.\n    \n    * bpo-37014: Fix typo in the docstring and documentation."
+    }
+  ],
+  "2836374+timhoffm@users.noreply.github.com": [
+    {
+      "type": "commit",
+      "time": 1559494690000,
+      "time spent": 21,
+      "content": "    Add description to the command line help of the argument clinic (GH-8518)"
+    },
+    {
+      "type": "commit",
+      "time": 1559362202000,
+      "time spent": 118,
+      "content": "    Improve docstring of list.sort (GH-8516)"
+    }
+  ],
+  "mdickinson@enthought.com": [
+    {
+      "type": "commit",
+      "time": 1559467446000,
+      "time spent": 73,
+      "content": "    bpo-36027: Extend three-argument pow to negative second argument (GH-13266)"
+    },
+    {
+      "type": "commit",
+      "time": 1559388113000,
+      "time spent": 41,
+      "content": "    Move whats-new entry for math.factorial to the math module section. (GH-13723)"
+    }
+  ],
+  "ericsnowcurrently@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559425186000,
+      "time spent": 31,
+      "content": "    bpo-33608: Factor out a private, per-interpreter _Py_AddPendingCall(). (gh-13714)"
+    },
+    {
+      "type": "commit",
+      "time": 1559359007000,
+      "time spent": 3,
+      "content": "    bpo-36818: Add PyInterpreterState.runtime field. (gh-13129)\n    \n    https://bugs.python.org/issue36818"
+    }
+  ],
+  "marco.buttu@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559423508000,
+      "time spent": 95,
+      "content": "    bpo-29414: Change 'the for statement is such an iterator' in Tutorial (GH-273)"
+    }
+  ],
+  "fedoseev.sergey@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559421138000,
+      "time spent": 69,
+      "content": "    bpo-34303: Micro-optimizations in functools.reduce() (GH-8598)"
+    }
+  ],
+  "stefan_ml@behnel.de": [
+    {
+      "type": "commit",
+      "time": 1559418543000,
+      "time spent": 70,
+      "content": "    Clean up and reduce visual clutter in the makeunicode.py script. (GH-7558)"
+    }
+  ],
+  "evanunderscore@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559416162000,
+      "time spent": 46,
+      "content": "    bpo-28595: Allow shlex whitespace_split with punctuation_chars (GH-2071)"
+    }
+  ],
+  "franciscouzo@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559409240000,
+      "time spent": 93,
+      "content": "    Improve exception message for str.format (GH-12675)"
+    }
+  ],
+  "anthony.p.shaw@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559404318000,
+      "time spent": 105,
+      "content": "    bpo-31968: Documentation -- add clarification on the globals dict for exec() (GH-13140)"
+    }
+  ],
+  "stephane@wirtel.be": [
+    {
+      "type": "commit",
+      "time": 1559389293000,
+      "time spent": 115,
+      "content": "    Doc: Correct the creation year and the credits of the Logo Programming language (GH-13520)"
+    }
+  ],
+  "bzvi7919@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559380749000,
+      "time spent": 100,
+      "content": "    bpo-36813: Fix QueueListener to call task_done() upon termination. (GH-13113)\n    \n    \n    \n    Fixed QueueListener in order to avoid random deadlocks.\n    Unable to add regression tests atm due to time constraints, will add it in a bit.\n    Regarding implementation, although it's nested, it does not cause performance issues whatsoever, and does not call task_done() in case of an exception (which is the right thing to do IMHO).\n    \n    \n    https://bugs.python.org/issue36813"
+    }
+  ],
+  "Aggarwal.yash2011@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559373687000,
+      "time spent": 55,
+      "content": "    bpo-35431: Implemented math.comb (GH-11414)"
+    }
+  ],
+  "wiwindson@outlook.com": [
+    {
+      "type": "commit",
+      "time": 1559370796000,
+      "time spent": 66,
+      "content": "    bpo-18911: clarify that the minidom XML writer receives texts but not bytes (GH-13352)"
+    }
+  ],
+  "mariocj89@gmail.com": [
+    {
+      "type": "commit",
+      "time": 1559364550000,
+      "time spent": 108,
+      "content": "    Add option to trace to run modules (GH-5134)\n    \n    Adds a new option in trace that allows tracing runnable modules. It is\n    exposed as `--module module_name` as `-m` is already in use for another\n    argument."
+    }
+  ],
+  "rkd@rkd.me.uk": [
+    {
+      "type": "commit",
+      "time": 1559362437000,
+      "time spent": 102,
+      "content": "    bpo-29984: Improve 'heapq' test coverage (GH-992)"
+    }
+  ]
+}
