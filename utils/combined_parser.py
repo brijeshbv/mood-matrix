@@ -20,6 +20,7 @@ def prepare_user_data():
                 'content': email['content']
             }]
         else:
+
             tasks[f'{email_id}'].append({
                 'type': 'email',
                 'time': email['time']//ms_per_sec,
@@ -43,7 +44,7 @@ def prepare_user_data():
                 'content': data[0]['content']
             })
 
-    file_path = "json_data/comnined_data.json"
+    file_path = "json_data/combined_data.json"
 
     # Write JSON data to the file
     with open(file_path, 'w') as file:
