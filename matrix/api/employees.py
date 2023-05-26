@@ -67,6 +67,17 @@ def get_coach(email, year, month, day):
         return matrix.api.llmbox.get_coaches(commits)
     return "No entries"
 
+@mood_mtx_api_v1.route('/coach_agent/<email>', methods=['GET'],  defaults={'year':None, 'month': None, 'day': None})
+@mood_mtx_api_v1.route('/coach_agent/<email>/<year>', methods=['GET'],  defaults={ 'month': None, 'day': None})
+@mood_mtx_api_v1.route('/coach_agent/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': None})
+@mood_mtx_api_v1.route('/coach_agent/<email>/<year>/<month>/<day>', methods=['GET'])
+def coach_user(email, year, month, day):
+    gitcommit = json.load(open("json_data/combined_data.json"))
+    commits = filter_dicts_by_date(gitcommit[email], year, month, day)
+    if len(commits) > 0:
+        return matrix.api.llmbox.coach_user(email, commits)
+    return "No entries"
+
 
 
 @mood_mtx_api_v1.route('/raw_data', methods=['GET'])
