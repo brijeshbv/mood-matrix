@@ -18,8 +18,8 @@ def get_sentiment(items):
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
     combined_prompt = """
-            Summarise the total count of each sentiment below and their percentage weight.
-
+            Summarise the total count of each sentiment below and their percentage weight. Don't include anything else. If there is just one sentiment, give it 100% weight. Maximum 150 chars in output.
+            
             {text}
 
             Summary of Sentiment:  """

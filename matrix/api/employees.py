@@ -33,6 +33,25 @@ def api_get_users():
     return jsonify(list(gitcommit.keys()))
 
 
+@mood_mtx_api_v1.route('/users_rating', methods=['GET'])
+def api_get_user_with_rating():
+    gitcommit = json.load(open("json_data/combined_data.json"))
+    email_ids= list(gitcommit.keys())
+    email_dict = []
+    paginate = 0
+    for email_id in email_ids:
+        dictionary = {"email": email_id}
+        if paginate < 10:
+            context = filter_dicts_by_date(gitcommit[email_id])
+            if len(context) > 0:
+                summary = matrix.api.llmbox.get_sentiment(context)
+                if summary is not None:
+                    dictionary['rating'] = summary['output_text']
+        email_dict.append(dictionary)
+        paginate +=1
+
+    return jsonify(email_dict)
+
 @mood_mtx_api_v1.route('/sentiment/<email>', methods=['GET'],  defaults={'year':None, 'month': None, 'day': None})
 @mood_mtx_api_v1.route('/sentiment/<email>/<year>', methods=['GET'],  defaults={ 'month': None, 'day': None})
 @mood_mtx_api_v1.route('/sentiment/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': None})
