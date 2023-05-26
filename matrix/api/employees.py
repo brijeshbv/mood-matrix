@@ -41,7 +41,7 @@ def get_sentiment(email, year, month, day):
     gitcommit = json.load(open("json_data/combined_data.json"))
     commits = filter_dicts_by_date(gitcommit[email], year, month, day)
     if len(commits) > 0:
-        return matrix.api.llmbox.get_sentiment(commits[0])
+        return matrix.api.llmbox.get_sentiment(commits)
     return "No entries"
 
 

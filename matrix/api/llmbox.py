@@ -8,26 +8,26 @@ from langchain.docstore.document import Document
 from dotenv import load_dotenv
 
 load_dotenv()
-def get_sentiment(item):
+def get_sentiment(items):
     prompt = """
         Summarise the sentiment of the text as either positive, neutral, negative. 
         
-        {context}
+        {text}
         
         Sentiment:  """
-    prompt_template = PromptTemplate(input_variables=["context"], template=prompt)
+    prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
     llm = OpenAI(temperature=0)
-    text_splitter = CharacterTextSplitter()
-    texts = text_splitter.split_text(item["content"])
-    docs = [Document(page_content=t) for t in texts]
+    #text_splitter = CharacterTextSplitter()
+    #texts = text_splitter.split_text(item["content"])
+    docs = [Document(page_content=t['content']) for t in items]
 
-    llm_chain = LLMChain(
-        llm=llm,
-        prompt=prompt_template
+    llm_chain = load_summarize_chain(
+        llm=llm, chain_type="map_reduce", return_intermediate_steps=True,
+        map_prompt=prompt_template, combine_prompt=prompt_template 
     )
 
-    return llm_chain(item["content"])["text"].strip().lower()
+    return llm_chain({"input_documents": docs}, return_only_outputs=True)#llm_chain(item["content"])["text"].strip().lower()
 
 
 def get_coaches(items):
