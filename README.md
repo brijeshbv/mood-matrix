@@ -1,211 +1,96 @@
-# mood-matrix
-An app for daily work day sentiment analysis.
-
-## [Flask API Server](https://github.com/app-generator/api-server-flask)
-
-Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence and deployment scripts via Docker - Provided by **[AppSeed](https://appseed.us/)**. It has all the ready-to-use bare minimum essentials and `active versioning` and [support](https://appseed.us/support/).
-
-
-> Features:
-
-- ✅ `Up-to-date dependencies` 
-- ✅ [API Definition](https://docs.appseed.us/boilerplate-code/api-unified-definition) - the unified API structure implemented by this server
-- ✅ API powered by `Flask-restX` 
-- ✅ `JWT Authentication` (login, logout, register) via `Flask-jwt_extended`
-- 🆕 `OAuth` for **Github**
-  - Full-stack ready with [React Soft Dashboard](https://github.com/app-generator/react-soft-ui-dashboard)
-- ✅ **Docker**, `Unitary tests`
-- 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
-  - `python.exe deployer.py flask <THIS_REPO> "run:app"`
-  
-<br />
-
-> Can be used with other [React Starters](https://appseed.us/apps/react) for a complete **Full-Stack** experience:
-
-| [React Node JS Berry](https://appseed.us/product/berry-dashboard/api-server-nodejs/react/) | [React Node Soft Dashboard](https://appseed.us/product/soft-ui-dashboard/api-server-nodejs/react/) | [React Node Horizon](https://appseed.us/product/horizon-ui/api-server-nodejs/) |
-| --- | --- | --- |
-| [![React Node JS Berry](https://user-images.githubusercontent.com/51070104/176936514-f1bccb21-bafe-4b43-9e4c-b6fe0ec9511d.png)](https://appseed.us/product/berry-dashboard/api-server-nodejs/react/) | [![React Node Soft Dashboard](https://user-images.githubusercontent.com/51070104/176936814-74386559-4e05-43d5-b9a4-8f70ce96a610.png)](https://appseed.us/product/soft-ui-dashboard/api-server-nodejs/react/) | [![React Node Horizon](https://user-images.githubusercontent.com/51070104/174428337-181e6dea-0ad9-4fe1-a35f-25e5fa656a9d.png)](https://appseed.us/product/horizon-ui/api-server-nodejs/)
-
-<br />
-
-![Flask API Server - Open-source Flask Starter provided by AppSeed.](https://user-images.githubusercontent.com/51070104/126349643-264d4cf4-6d0b-4c24-8185-adf69409fa4e.png)
-
-<br />
-
-## ✨ Quick Start in `Docker`
-
-> Get the code
-
-```bash
-$ git clone https://github.com/app-generator/api-server-flask.git
-$ cd api-server-flask
-```
-
-> Start the app in Docker
-
-```bash
-$ docker-compose up --build  
-```
-
-The API server will start using the PORT `5000`.
-
-<br />
-
-## ✨ Table of Contents
-
-1. [Getting Started](#getting-started)
-2. [Project Structure](#project-structure)
-3. [Modules](#modules)
-4. [Testing](#testing)
-
-<br />
-
-## ✨ How to use the code
-
-> **Step #1** - Clone the project
-
-```bash
-$ git clone https://github.com/app-generator/api-server-flask.git
-$ cd api-server-flask
-```
-
-<br />
-
-> **Step #2** - create virtual environment using python3 and activate it (keep it outside our project directory)
-
-```bash
-$ # Virtualenv modules installation (Unix based systems)
-$ virtualenv env
-$ source env/bin/activate
-$
-$ # Virtualenv modules installation (Windows based systems)
-$ # virtualenv env
-$ # .\env\Scripts\activate
-```
-
-<br />
-
-> **Step #3** - Install dependencies in virtualenv
-
-```bash
-$ pip install -r requirements.txt
-```
-
-<br />
-
-> **Step #4** - setup `flask` command for our app
-
-```bash
-$ export FLASK_APP=run.py
-$ export FLASK_ENV=development
-```
-
- For **Windows-based** systems
-
-```powershell
-$ (Windows CMD) set FLASK_APP=run.py
-$ (Windows CMD) set FLASK_ENV=development
-$
-$ (Powershell) $env:FLASK_APP = ".\run.py"
-$ (Powershell) $env:FLASK_ENV = "development"
-```
-
-<br />
-
-> **Step #5** - Create a new `.env` file using sample `env.sample`
-
-The meaning of each variable can be found below: 
-
-- `DEBUG`: if `True` the app runs in develoment mode
-  - For production value `False` should be used
-- `SECRET_KEY`: used in assets management
-- `GITHUB_CLIENT_ID`: For GitHub social login
-- `GITHUB_SECRET_KEY`: For GitHub social login
-
-<br />
-
-> **Step #6** - start test APIs server at `localhost:5000`
-
-```bash
-$ flask run
-```
-
-Use the API via `POSTMAN` or Swagger Dashboard.
-
-![Flask API Server - Swagger Dashboard.](https://user-images.githubusercontent.com/51070104/141950891-ea315fca-24c2-4929-841c-38fb950a478d.png) 
-
-<br />
-
-## ✨ Project Structure
-
-```bash
-api-server-flask/
-├── api
-│   ├── config.py
-│   ├── __init__.py
-│   ├── models.py
-│   └── routes.py
-├── Dockerfile
-├── README.md
-├── requirements.txt
-├── run.py
-└── tests.py
-```
-
-<br />
-
-## ✨ API
-
-For a fast set up, use this `POSTMAN` file: [api_sample](https://github.com/app-generator/api-unified-definition/blob/main/api.postman_collection.json)
-
-> **Register** - `api/users/register` (**POST** request)
+# flask-pymongo-example
 
 ```
-POST api/users/register
-Content-Type: application/json
+$$$$$$$$\ $$\                     $$\               $$$$$$$\            $$\      $$\                                               
+$$  _____|$$ |                    $$ |              $$  __$$\           $$$\    $$$ |                                              
+$$ |      $$ | $$$$$$\   $$$$$$$\ $$ |  $$\         $$ |  $$ |$$\   $$\ $$$$\  $$$$ | $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\        
+$$$$$\    $$ | \____$$\ $$  _____|$$ | $$  |$$$$$$\ $$$$$$$  |$$ |  $$ |$$\$$\$$ $$ |$$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\       
+$$  __|   $$ | $$$$$$$ |\$$$$$$\  $$$$$$  / \______|$$  ____/ $$ |  $$ |$$ \$$$  $$ |$$ /  $$ |$$ |  $$ |$$ /  $$ |$$ /  $$ |      
+$$ |      $$ |$$  __$$ | \____$$\ $$  _$$<          $$ |      $$ |  $$ |$$ |\$  /$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |      
+$$ |      $$ |\$$$$$$$ |$$$$$$$  |$$ | \$$\         $$ |      \$$$$$$$ |$$ | \_/ $$ |\$$$$$$  |$$ |  $$ |\$$$$$$$ |\$$$$$$  |      
+\__|      \__| \_______|\_______/ \__|  \__|        \__|       \____$$ |\__|     \__| \______/ \__|  \__| \____$$ | \______/       
+                                                              $$\   $$ |                                 $$\   $$ |                
+                                                              \$$$$$$  |                                 \$$$$$$  |                
+                                                               \______/                                   \______/                 
+       $$$\                                                                                                                        
+      $$ $$\                                                                                                                       
+      \$$$\ |                                                                                                                      
+      $$\$$\$$\                                                                                                                    
+      $$ \$$ __|                                                                                                                   
+      $$ |\$$\                                                                                                                     
+       $$$$ $$\                                                                                                                    
+       \____\__|                                                                                                                   
+                                                                                                                                   
+                                                                                                                                   
+                                                                                                                                   
+$$\      $$\                                         $$$$$$$\  $$$$$$$\         $$$$$$\    $$\     $$\                             
+$$$\    $$$ |                                        $$  __$$\ $$  __$$\       $$  __$$\   $$ |    $$ |                            
+$$$$\  $$$$ | $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$ |  $$ |$$ |  $$ |      $$ /  $$ |$$$$$$\   $$ | $$$$$$\   $$$$$$$\         
+$$\$$\$$ $$ |$$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$ |  $$ |$$$$$$$\ |      $$$$$$$$ |\_$$  _|  $$ | \____$$\ $$  _____|        
+$$ \$$$  $$ |$$ /  $$ |$$ |  $$ |$$ /  $$ |$$ /  $$ |$$ |  $$ |$$  __$$\       $$  __$$ |  $$ |    $$ | $$$$$$$ |\$$$$$$\          
+$$ |\$  /$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |      $$ |  $$ |  $$ |$$\ $$ |$$  __$$ | \____$$\         
+$$ | \_/ $$ |\$$$$$$  |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$$$$$$  |$$$$$$$  |      $$ |  $$ |  \$$$$  |$$ |\$$$$$$$ |$$$$$$$  |        
+\__|     \__| \______/ \__|  \__| \____$$ | \______/ \_______/ \_______/       \__|  \__|   \____/ \__| \_______|\_______/         
+                                 $$\   $$ |                                                                                        
+                                 \$$$$$$  |                                                                                        
+                                  \______/                                                                                         
+```
+## Introduction
 
-{
-    "username":"test",
-    "password":"pass", 
-    "email":"test@appseed.us"
-}
+Implementation of flask and pymongo using mflix sample data set and mflix python UI
+
+This is a short guide on how to integrated MongoDB Atlas to Flask applications using Flask-PyMongo wrapper and pymongo driver.
+
+## Project Structure
+
+The `mflix` directory holds the application logic.
+
+- `db.py` Where all database CRUD patterns are exposed as functions.
+- `api/movies.py`  Where the web api is exposed to the UI
+
+The main directory holds the following files:
+- `run.py` Where the Flask application is initialize and the config is loaded
+- `sample_ini` Where the connection URI to MongoDB Atlas is configured
+- `requirments.txt` Where the dependencies this project needs to run are located.
+
+## How to set-up
+
+Clone the repository.
+```
+git clone git@github.com:mongodb-developer/flask-pymongo-example.git
 ```
 
-<br />
-
-> **Login** - `api/users/login` (**POST** request)
-
+Start a python virtual env:
 ```
-POST /api/users/login
-Content-Type: application/json
+# navigate to the flask-pymongo-example directory
+cd flask-pymongo-example
 
-{
-    "password":"pass", 
-    "email":"test@appseed.us"
-}
+# create the virtual environment for MFlix
+python3 -m venv mflix-venv
+
+# activate the virtual environment
+source mflix_venv/bin/activate
 ```
 
-<br />
-
-> **Logout** - `api/users/logout` (**POST** request)
-
+Install dependencies
 ```
-POST api/users/logout
-Content-Type: application/json
-authorization: JWT_TOKEN (returned by Login request)
-
-{
-    "token":"JWT_TOKEN"
-}
+python3 -m pip install -r requirments.txt
 ```
 
-<br />
+Rename the `sample_ini` to `.ini`.
 
-## ✨ Testing
+[Get your Atlas cluster](https://docs.atlas.mongodb.com/getting-started/) with [sample data](https://docs.atlas.mongodb.com/sample-data/) set [connection string](https://docs.atlas.mongodb.com/connect-to-cluster/) and place in `DB_URI` parameter under `.ini`
 
-Run tests using `pytest tests.py`
+Make sure you have IP in the Atlas [access list](https://docs.atlas.mongodb.com/security/add-ip-address-to-list/) and username/password of your Atlas user correctly specified.
 
-<br />
+## Start the application
 
----
-**[Flask API Server](https://github.com/app-generator/api-server-flask)** - provided by [AppSeed](https://appseed.us)
+```
+python ./run.py
+```
+
+Open your browser on http://localhost:5000
+
+## Disclaimer 
+
+Use at your own risk; not a supported MongoDB product

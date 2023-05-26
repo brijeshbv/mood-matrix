@@ -1,15 +1,16 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
 
-from api import app, db
+from matrix.factory import create_app
 
-@app.shell_context_processor
-def make_shell_context():
-    return {"app": app,
-            "db": db
-            }
+import os
+import configparser
 
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+
+config = configparser.ConfigParser()
+config.read(os.path.abspath(os.path.join(".ini")))
+
+if __name__ == "__main__":
+    app = create_app()
+    app.config['DEBUG'] = True
+    app.config['MONGO_URI'] = config['PROD']['DB_URI']
+
+    app.run()
