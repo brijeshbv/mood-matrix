@@ -48,7 +48,7 @@ def prepare_user_data():
 
     # Write JSON data to the file
     with open(file_path, 'w') as file:
-        json.dump(tasks, file)
+        json.dump(tasks, file, indent=4, separators=(',', ':'))
         file.write('\n')
 
     return tasks
