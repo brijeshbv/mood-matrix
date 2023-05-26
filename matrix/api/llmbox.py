@@ -30,6 +30,27 @@ def get_sentiment(item):
     return llm_chain(item["content"])["text"].strip().lower()
 
 
+def get_coach(item):
+    prompt = """
+        Please provide praise, tips, pointers, or critical feedback on the communication below.
+
+        {context}
+
+        Coaching Points:  """
+    prompt_template = PromptTemplate(input_variables=["context"], template=prompt)
+
+    llm = OpenAI(temperature=0)
+    text_splitter = CharacterTextSplitter()
+    texts = text_splitter.split_text(item["content"])
+    docs = [Document(page_content=t) for t in texts]
+
+    llm_chain = LLMChain(
+        llm=llm,
+        prompt=prompt_template
+    )
+
+    return llm_chain(item["content"])["text"].strip().lower()
+
 def get_summary(item):
     """
         Generate a summary for the given item's content using OpenAI's language model and text splitting techniques.
