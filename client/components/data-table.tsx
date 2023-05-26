@@ -60,17 +60,6 @@ export function DataTable<TData, TValue>({
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => {
-                  if (cell.id.includes('rating')){
-                    console.log(cell)
-                    return(
-                      <div className="flex flex-col items-center pt-4" >
-                      <ReactStars          
-                  count={cell.row.original.rating}
-                  size={12}
-                  color1={'#ffd700'} />
-                  </div>
-                    )
-                  }
                   return(<TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>)

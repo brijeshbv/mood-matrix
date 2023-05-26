@@ -1,16 +1,15 @@
 from flask import Blueprint, request, jsonify
 from matrix.db import get_users
 from utils.combined_parser import prepare_user_data
-from flask_cors import CORS
 from matrix.api.utils import expect
 from datetime import datetime
 import json
 import matrix.api.llmbox
-
+from flask_cors import CORS, cross_origin
 mood_mtx_api_v1 = Blueprint(
     'mood_mtx_api_v1', 'mood_mtx_api_v1', url_prefix='/api/v1')
 
-CORS(mood_mtx_api_v1)
+CORS(mood_mtx_api_v1, support_credentials=True)
 
 def filter_dicts_by_date(data, year=None, month=None, day=None):
     def filter_func(item):
@@ -75,3 +74,24 @@ def get_raw_data():
     return jsonify(data)
 
 
+@cross_origin(supports_credentials=True)
+@mood_mtx_api_v1.route('/users_rating', methods=['GET'])
+def api_get_user_with_rating():
+    gitcommit = json.load(open("json_data/combined_data.json"))
+    email_ids= list(gitcommit.keys())
+    email_dict = []
+    paginate = 0
+    for email_id in email_ids:
+        dictionary = {"email": email_id}
+        if paginate < 10:
+            context = filter_dicts_by_date(gitcommit[email_id])
+            if len(context) > 0:
+                summary = matrix.api.llmbox.get_sentiment(context)
+                if summary is not None:
+                    dictionary['rating'] = summary['output_text']
+        email_dict.append(dictionary)
+        paginate +=1
+
+    response = jsonify(email_dict)
+    response.headers.add("Access-Control-Allow-Origin", '*')
+    return response
