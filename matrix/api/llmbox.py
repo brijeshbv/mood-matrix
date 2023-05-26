@@ -33,8 +33,9 @@ def get_sentiment(items):
         map_prompt=prompt_template, combine_prompt=combined_prompt_template
     )
 
-    return llm_chain({"input_documents": docs})#.get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
-
+    resp = llm_chain({"input_documents": docs}, return_only_outputs=True)#.get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
+    resp["items"] = items
+    return resp
 
 def get_coaches(items):
     prompt = """
@@ -50,7 +51,10 @@ def get_coaches(items):
 
     chain = load_summarize_chain(llm, chain_type="map_reduce", return_intermediate_steps=True,
                                  map_prompt=prompt_template, combine_prompt=prompt_template)
-    return chain({"input_documents": docs})#.get('output_text').strip()
+    resp = chain({"input_documents": docs},
+                     return_only_outputs=True)  # .get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
+    resp["items"] = items
+    return resp
 
 def get_summaries(items):
     """
@@ -75,6 +79,9 @@ def get_summaries(items):
 
     chain = load_summarize_chain(llm, chain_type="map_reduce", return_intermediate_steps=True,
                                  map_prompt=prompt_template, combine_prompt=prompt_template)
-    return chain({"input_documents": docs})#.get('output_text').strip()
+    resp = chain({"input_documents": docs},
+                     return_only_outputs=True)  # .get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
+    resp["items"] = items
+    return resp
 
 
