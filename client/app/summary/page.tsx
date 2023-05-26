@@ -13,7 +13,10 @@ import {
 import useSWR from 'swr';
 
 const fetcher = (url: string) => fetch(url, {
-  method: 'GET'
+  method: 'GET',
+  headers:{
+    'Access-Control-Request-Headers': 'Content-Type, Authorization'
+  }
 }).then((res) => { 
   return res.json()});
 
@@ -21,8 +24,6 @@ export default function Summary() {
 
   const {data, error } = useSWR(
  'http://127.0.0.1:5000/api/v1/users_rating', fetcher)
-
- console.log(data)
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>

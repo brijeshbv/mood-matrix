@@ -97,4 +97,5 @@ def api_get_user_with_rating():
 
     response = jsonify(email_dict)
     response.headers.add("Access-Control-Allow-Origin", '*')
+    response.headers.add("Access-Control-Allow-Credentials", True)
     return response
