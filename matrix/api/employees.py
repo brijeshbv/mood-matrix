@@ -19,7 +19,7 @@ def filter_dicts_by_date(data, year=None, month=None, day=None):
         if not time_field:
             return False
 
-        dt = datetime.fromtimestamp(time_field/1000)
+        dt = datetime.fromtimestamp(time_field)
         # print(dt)
         return (year is None or dt.year == int(year)) and (month is None or dt.month == int(month)) and (
                     day is None or dt.day == int(day))
@@ -29,7 +29,7 @@ def filter_dicts_by_date(data, year=None, month=None, day=None):
 
 @mood_mtx_api_v1.route('/users', methods=['GET'])
 def api_get_users():
-    gitcommit = json.load(open("json_data/git_log.json"))
+    gitcommit = json.load(open("json_data/combined_data.json"))
     return jsonify(list(gitcommit.keys()))
 
 
@@ -38,11 +38,11 @@ def api_get_users():
 @mood_mtx_api_v1.route('/sentiment/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': None})
 @mood_mtx_api_v1.route('/sentiment/<email>/<year>/<month>/<day>', methods=['GET'])
 def get_sentiment(email, year, month, day):
-    gitcommit = json.load(open("json_data/git_log.json"))
+    gitcommit = json.load(open("json_data/combined_data.json"))
     commits = filter_dicts_by_date(gitcommit[email], year, month, day)
     if len(commits) > 0:
         return matrix.api.llmbox.get_sentiment(commits[0])
-    return []
+    return "No entries"
 
 
 @mood_mtx_api_v1.route('/summary/<email>', methods=['GET'],  defaults={'year':None, 'month': None, 'day': None})
@@ -50,22 +50,22 @@ def get_sentiment(email, year, month, day):
 @mood_mtx_api_v1.route('/summary/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': None})
 @mood_mtx_api_v1.route('/summary/<email>/<year>/<month>/<day>', methods=['GET'])
 def get_summary(email, year, month, day):
-    gitcommit = json.load(open("json_data/git_log.json"))
+    gitcommit = json.load(open("json_data/combined_data.json"))
     commits = filter_dicts_by_date(gitcommit[email], year, month, day)
     if len(commits) > 0:
-        return matrix.api.llmbox.get_summary(commits[0])
-    return []
+        return matrix.api.llmbox.get_summaries(commits)
+    return "No entries"
 
 @mood_mtx_api_v1.route('/coach/<email>', methods=['GET'],  defaults={'year':None, 'month': None, 'day': None})
 @mood_mtx_api_v1.route('/coach/<email>/<year>', methods=['GET'],  defaults={ 'month': None, 'day': None})
 @mood_mtx_api_v1.route('/coach/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': None})
 @mood_mtx_api_v1.route('/coach/<email>/<year>/<month>/<day>', methods=['GET'])
 def get_coach(email, year, month, day):
-    gitcommit = json.load(open("json_data/git_log.json"))
+    gitcommit = json.load(open("json_data/combined_data.json"))
     commits = filter_dicts_by_date(gitcommit[email], year, month, day)
     if len(commits) > 0:
         return matrix.api.llmbox.get_coach(commits[0])
-    return []
+    return "No entries"
 
 
 
