@@ -1428,5 +1428,37 @@
             "time_spent":116,
             "content":"    bpo-29984: Improve 'heapq' test coverage (GH-992)"
         }
+    ],
+    "rude_user@acme.com":[
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":45,
+            "content":"Subject: [Bug-Report] This application is a disaster\nMessage-ID: <BCDF1C0E-783B-4C4D-83E3-AF5D9F8B89CD@acme.com>\n\nThis thing you call an app is consistently crashing! I can't believe you released this. When will you get this sorted out? I expect better!"
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":60,
+            "content":"Fix for crash issue - about bloody time"
+        },
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":30,
+            "content":"Subject: [Feedback] Are you guys even trying?\nMessage-ID: <BD674AC9-8A6E-4CE5-A12C-587CABC51C5A@acme.com>\n\nCan't you guys get anything right? The new patch is even worse. The user interface is atrocious. Get it fixed ASAP."
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":70,
+            "content":"UI changes - hopefully less horrible this time"
+        },
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":35,
+            "content":"Subject: [Final warning] This is ridiculous\nMessage-ID: <D2636FB4-7101-4E7A-9BB1-1E017BA2B396@acme.com>\n\nDo I need to do everything myself? Your bug fixes are pathetic. I am utterly disappointed in this entire team. Get it together, or I'll find someone who can."
+        }
     ]
 }

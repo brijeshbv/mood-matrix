@@ -10,29 +10,35 @@ from dotenv import load_dotenv
 load_dotenv()
 def get_sentiment(items):
     prompt = """
-        Summarise the sentiment of the text as either positive, neutral, negative. 
+        Summarise the sentiment of the text as either positive, neutral, negative.  Give extreme weight to negativity.
         
         {text}
         
         Sentiment:  """
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
+    combined_prompt = """
+            Summarise the total count of each sentiment below and their percentage weight.
+
+            {text}
+
+            Summary of Sentiment:  """
+    combined_prompt_template = PromptTemplate(input_variables=["text"], template=combined_prompt)
+
     llm = OpenAI(temperature=0)
-    #text_splitter = CharacterTextSplitter()
-    #texts = text_splitter.split_text(item["content"])
     docs = [Document(page_content=t['content']) for t in items]
 
     llm_chain = load_summarize_chain(
         llm=llm, chain_type="map_reduce", return_intermediate_steps=True,
-        map_prompt=prompt_template, combine_prompt=prompt_template 
+        map_prompt=prompt_template, combine_prompt=combined_prompt_template
     )
 
-    return llm_chain({"input_documents": docs}, return_only_outputs=True)#llm_chain(item["content"])["text"].strip().lower()
+    return llm_chain({"input_documents": docs}, return_only_outputs=True).get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
 
 
 def get_coaches(items):
     prompt = """
-        Please provide praise, tips, pointers, or critical feedback on the communication below.
+        Please provide critical feedback on the communication below and be a touch condescending that is intended to make the developer a better team mate.
 
         {text}
 
@@ -44,7 +50,7 @@ def get_coaches(items):
 
     chain = load_summarize_chain(llm, chain_type="map_reduce", return_intermediate_steps=True,
                                  map_prompt=prompt_template, combine_prompt=prompt_template)
-    return chain({"input_documents": docs}, return_only_outputs=True).get('output_text').strip()
+    return chain({"input_documents": docs}, return_only_outputs=True)#.get('output_text').strip()
 
 def get_summaries(items):
     """
@@ -56,9 +62,19 @@ def get_summaries(items):
         Returns:
             str: The generated summary for the content.
     """
+    prompt = """
+            Please summarise the contributions made.
+
+            {text}
+
+            Summary of Contributions:  """
+    prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
+
     llm = OpenAI(temperature=0)
     docs = [Document(page_content=t['content']) for t in items]
-    chain = load_summarize_chain(llm, chain_type="map_reduce")
-    return chain.run(docs)
+
+    chain = load_summarize_chain(llm, chain_type="map_reduce", return_intermediate_steps=True,
+                                 map_prompt=prompt_template, combine_prompt=prompt_template)
+    return chain({"input_documents": docs}, return_only_outputs=True)#.get('output_text').strip()
 
 
