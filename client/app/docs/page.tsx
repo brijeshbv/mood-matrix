@@ -1,8 +1,5 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
-
 export default function Docs() {
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -11,7 +8,7 @@ export default function Docs() {
           Mood Matrix Documentation
         </h1>
       </div>
-      <div className="container flex flex-col items-left gap-4 p-4 ">
+      <div className="items-left container flex flex-col gap-4 p-4 ">
         <h2>Table of Contents:</h2>
         <ol className="list-decimal pl-6">
           <li>Introduction</li>
