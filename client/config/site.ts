@@ -16,6 +16,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/brijeshbv/mood-matrix",
-    docs: "https://moodmatrix.com/docs",
+    docs: "/docs",
   },
 }
