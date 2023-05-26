@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "prop-types": "^15.8.1",
-    "react-stars": "^2.2.5"
-  },
-  "devDependencies": {
-    "@types/react-stars": "^2.2.1"
-  }
-}

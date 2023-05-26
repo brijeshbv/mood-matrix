@@ -20,7 +20,7 @@ def get_sentiment(items):
     if cacheval:
         return json.loads(cacheval)
     prompt = """
-        Summarise the sentiment of the text as either positive, neutral, negative.  Give extreme weight to negativity.
+        Summarise the total count of each sentiment below and their percentage weight. Don't include anything else. If there is just one sentiment, give it 100% weight. Maximum 150 chars in output.
         
         {text}
         
