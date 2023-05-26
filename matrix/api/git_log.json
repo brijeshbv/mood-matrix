@@ -4,7 +4,7 @@
       "type": "commit",
       "time": "2019-06-29 16:00:22-07:00",
       "time spent": 29,
-      "content": "    bpo-37437: Pass -Wno-unreachable-code when compiling expat. (GH-14470)"
+      "content": "     bpo-37437: Pass -Wno-unreachable-code when compiling expat. (GH-14470)"
     },
     {
       "type": "commit",
