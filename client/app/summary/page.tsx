@@ -30,7 +30,7 @@ export default function Summary() {
   return (
 
   <Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableCaption>A list of your users and their ratings.</TableCaption>
   <TableHeader>
     <TableRow>
       <TableHead >Email</TableHead>
