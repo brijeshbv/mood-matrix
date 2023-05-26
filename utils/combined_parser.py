@@ -20,7 +20,6 @@ def prepare_user_data():
                 'content': email['content']
             }]
         else:
-
             tasks[f'{email_id}'].append({
                 'type': 'email',
                 'time': email['time']//ms_per_sec,
@@ -37,12 +36,13 @@ def prepare_user_data():
                 'content': data[0]['content']
             }]
         else:
-            tasks[email].append({
-                'type': 'git_log',
-                'time': data[0]['time']//ms_per_sec,
-                'time_spent' : random.choice(range(40,120)),
-                'content': data[0]['content']
-            })
+            for ind_data in range (len(data) -1):
+                tasks[email].append({
+                    'type': 'git_log',
+                    'time': data[ind_data + 1]['time']//ms_per_sec,
+                    'time_spent' : random.choice(range(40,120)),
+                    'content': data[ind_data + 1]['content']
+                })
 
     file_path = "json_data/combined_data.json"
 
