@@ -34,6 +34,7 @@ export default function Summary() {
   <TableCaption>A list of your users and their ratings.</TableCaption>
   <TableHeader>
     <TableRow>
+    <TableHead >Name</TableHead>
       <TableHead >Email</TableHead>
       <TableHead >Rating</TableHead>
     </TableRow>
@@ -41,6 +42,7 @@ export default function Summary() {
   <TableBody>
     {data.map((user: any) => (
       <TableRow key={user.email}>
+        <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/summary/${user.email}`}>{user.name}</Link></TableCell>
         <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/summary/${user.email}`}>{user.email}</Link></TableCell>
         <TableCell>{user.rating}</TableCell>
         </TableRow>
