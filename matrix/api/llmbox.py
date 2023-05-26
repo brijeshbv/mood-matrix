@@ -59,18 +59,22 @@ def get_sentiment(items):
     return resp
 
 def get_coaches(items):
-    md5 = hashlib.md5()
-    md5.update(json.dumps(items, sort_keys=True).encode())
-    cachekey = f"coaches.{md5.hexdigest()}"
-    cacheval = cache.get(cachekey)
-    if cacheval:
-        return json.loads(cacheval)
     prompt = """
         Please provide critical feedback on the communication below and be a touch condescending that is intended to make the developer a better team mate.
 
         {text}
 
         Coaching Points:  """
+
+    # filtered items and prompt are used as cache key
+    md5 = hashlib.md5()
+    md5.update(json.dumps(items, sort_keys=True).encode())
+    md5.update(json.dumps(prompt).enconde())
+    cachekey = f"coaches.{md5.hexdigest()}"
+    cacheval = cache.get(cachekey)
+    if cacheval:
+        return json.loads(cacheval)
+
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
     llm = OpenAI(temperature=0)
@@ -94,18 +98,22 @@ def get_summaries(items):
         Returns:
             str: The generated summary for the content.
     """
-    md5 = hashlib.md5()
-    md5.update(json.dumps(items, sort_keys=True).encode())
-    cachekey = f"summary.{md5.hexdigest()}"
-    cacheval = cache.get(cachekey)
-    if cacheval:
-        return json.loads(cacheval)
+
     prompt = """
             Please summarise the contributions made.
 
             {text}
 
             Summary of Contributions:  """
+
+    md5 = hashlib.md5()
+    md5.update(json.dumps(items, sort_keys=True).encode())
+    md5.update(json.dumps(prompt).encode())
+    cachekey = f"summary.{md5.hexdigest()}"
+    cacheval = cache.get(cachekey)
+    if cacheval:
+        return json.loads(cacheval)
+
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
     llm = OpenAI(temperature=0)
