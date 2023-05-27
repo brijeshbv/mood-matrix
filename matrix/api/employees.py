@@ -6,7 +6,7 @@ from datetime import datetime
 import json
 import matrix.api.llmbox
 from flask_cors import CORS, cross_origin
-
+import re
 mood_mtx_api_v1 = Blueprint(
     'mood_mtx_api_v1', 'mood_mtx_api_v1', url_prefix='/api/v1')
 
@@ -95,10 +95,11 @@ def api_get_user_with_rating():
     email_ids = list(gitcommit.keys())
     email_dict = []
     paginate = 0
+    response = {}
     for email_id in email_ids:
         dictionary = {"email": email_id,
                     'name':email_id.split('@')[0]}
-        if paginate < 50:
+        if paginate < 75:
             context = filter_dicts_by_date(gitcommit[email_id])
             if len(context) > 0:
                 summary = matrix.api.llmbox.get_sentiment(context)
@@ -107,8 +108,21 @@ def api_get_user_with_rating():
 
         email_dict.append(dictionary)
         paginate += 1
+    pos, neg, neut = 0, 0 , 0
+    for summary in email_dict:
+        if 'rating' in summary.keys():
+            positive , neutral, negative  = re.findall(r'\d+', summary['rating'])
+            pos += int(positive)
+            neg += int(negative)
+            neut += int(neutral)
 
-    response = jsonify(email_dict)
+    response['org_summary'] = {
+        'positive': pos,
+        'negative': neg,
+        'neutral': neut,
+    }
+    response['data'] = email_dict
+    response = jsonify(response)
     response.headers.add("Access-Control-Allow-Origin", '*')
     response.headers.add("Access-Control-Allow-Credentials", True)
     return response
