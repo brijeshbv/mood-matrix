@@ -99,7 +99,7 @@ def api_get_user_with_rating():
     for email_id in email_ids:
         dictionary = {"email": email_id,
                     'name':email_id.split('@')[0]}
-        if paginate < 75:
+        if paginate < 100:
             context = filter_dicts_by_date(gitcommit[email_id])
             if len(context) > 0:
                 summary = matrix.api.llmbox.get_sentiment(context)
