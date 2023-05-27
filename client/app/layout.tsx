@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import React from 'react'
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"

@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import useSWR from 'swr';
+import React from 'react';
 import { LoadingSpinner } from "@/components/ui/spinner";
 
 const fetcher = (url: string) => fetch(url, {

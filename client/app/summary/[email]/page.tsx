@@ -1,5 +1,6 @@
 "use client"
 import useSWR from 'swr';
+import React from 'react';
 import { ArrowLeftRight, User } from 'lucide-react'
 import {
   Table,
