@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/table"
 
 import { LoadingSpinner } from '@/components/ui/spinner';
+import { Button } from "@/components/ui/button"
+import Link from 'next/link';
+import { MessageSquare } from 'lucide-react'
 
 const fetcher = (url: string) => fetch(url, {
   method: 'GET'
@@ -43,6 +46,9 @@ export default function Page({ params }: { params: { email: string } }) {
       <div className='mx-auto justify-center text-center'>
         <h2 className='text-left font-bold font-serif'>Employee Coaching Overview</h2>
         <p className='text-sm text-justify max-w-md'>{data.output_text}</p>
+        <Button className="bg-[#6e85d3]" asChild>
+          <Link href={`http://127.0.0.1:5000/api/v1/coach_agent/${decodedString}`} className='mt-2'><MessageSquare className="mr-1" />Coach on Discord</Link>
+        </Button>
       </div>
       <h2 className='text-left font-bold font-serif'>Employee Coaching Strategies:</h2>
       <Table>
