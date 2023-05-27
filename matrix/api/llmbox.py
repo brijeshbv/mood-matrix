@@ -137,7 +137,7 @@ def get_coaches(items):
     # filtered items and prompt are used as cache key
     md5 = hashlib.md5()
     md5.update(json.dumps(items, sort_keys=True).encode())
-    md5.update(json.dumps(prompt).enconde())
+    md5.update(json.dumps(prompt).encode())
     cachekey = f"coaches.{md5.hexdigest()}"
     cacheval = cache.get(cachekey)
     if cacheval:
