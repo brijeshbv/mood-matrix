@@ -87,6 +87,38 @@
             "content":"Subject: [Python-Dev] obmalloc (was Have a big machine and spare time?\n Here's a possible Python bug.)\nReferences: <CAExdVNmP=LHAXbXmhsecq=S9dAEVb6UYykDQ=xUcO1zJVh1Pfw@mail.gmail.com>\n <CAEfz+TxM-_viFaaQgqFbzoON0VnN74dpyJsP4Db=Ui-wj9=J-w@mail.gmail.com>\n <CA+LW3i1w8AcjCjRjyGkJyLwdmiQZxTLv_AMxUtUJrPjQk6MYQA@mail.gmail.com>\n <CAEfz+TwcyHnOisiPc6qmNFfPSS63+Ts_6H08jKGCnFuTTk9frQ@mail.gmail.com>\n <64d3f69a-b900-d17d-679e-aa748d0a23ab@python.org>\n <CAPdQG2rr978QuKb08YBeiHCxGPbnmm9A3vTU3-_nvOngM976nw@mail.gmail.com>\n <20190526112415.33e4a02d@fsol>\n <CAExdVN=7VmELOvv-BfW-JL8yFEMVTLt=yyBsFNTWB7pugE9HmQ@mail.gmail.com>\nMessage-ID: <20190602113706.01c14820@fsol>\n\nOn Sun, 2 Jun 2019 00:56:52 -0500\nTim Peters <tim.peters at gmail.com> wrote:\n> \n> But because O is only trying to deal with small (<= 512 bytes)\n> requests, it can use a very fast method based on trivial address\n> arithmetic to find the size of an allocated block by just reading it\n> up from the start of the (4K) \"pool\" the address belongs to.  T can't\n> do that - it appears to need to look up the address in a more\n> elaborate radix tree, to find info recording the size of the block\n> (which may be just about anything - no upper limit).\n\nThe interesting thing here is that in many situations, the size is\nknown up front when deallocating - it is simply not communicated to the\ndeallocator because the traditional free() API takes a sole pointer,\nnot a size.  But CPython could communicate that size easily if we\nwould like to change the deallocation API.  Then there's no bother\nlooking up the allocated size in sophisticated lookup structures.\n\nI'll note that jemalloc provides such APIs:\nhttp://jemalloc.net/jemalloc.3.html\n\n\"\"\"The dallocx() function causes the memory referenced by ptr to be\nmade available for future allocations.\n\nThe sdallocx() function is an extension of dallocx() with a size\nparameter to allow the caller to pass in the allocation size as an\noptimization.\"\"\"\n\nRegards\n\nAntoine.\n\n\n> \n> > (well, of course, obmalloc doesn't have to worry about concurrent\n> > scenarios, which explains some of the simplicity)  \n> \n> Right, T has a different collection of free lists for each thread. so\n> on each entry has to figure out which collection to use (and so\n> doesn't need to lock).  That's not free.  O only has one collection,\n> and relies on the GIL.\n> \n> Against that, O burns cycles worrying about something else:  because\n> it was controversial when it was new, O thought it was necessary to\n> handle free/realloc calls even when passed addresses that had actually\n> been obtained from the system malloc/realloc.  The T docs I saw said\n> \"don't do that - things will blow up in mysterious ways\".\n> \n> That's where O's excruciating \"address_in_range()\" logic comes from.\n> While that's zippy and scales extremely well (it doesn't depend on how\n> many objects/arenas/pools exist), it's not free, and is a significant\n> part of the \"fast path\" expense for both allocation and deallocation.\n> \n> It also limits us to a maximum pool size of 4K (to avoid possible\n> segfaults when reading up memory that was actually obtained from the\n> system malloc/realloc), and that's become increasingly painful:  on\n> 64-bit boxes the bytes lost to pool headers increased, and O changed\n> to handle requests up to 512 bytes instead of its original limit of\n> 256.  O was intended to supply \"a bunch\" of  usable blocks per pool,\n> not just a handful.  We \"should\" really at least double the pool and\n> arena sizes now.\n> \n> I don't think we need to cater anymore to careless code that mixes\n> system memory calls with O calls (e.g., if an extension gets memory\n> via `malloc()`, it's its responsibility to call `free()`), and if not\n> then `address_in_range()` isn't really necessary anymore either, and\n> then we could increase the pool size.  O would, however, need a new\n> way to recognize when its version of malloc punted to the system\n> malloc.\n> \n> BTW, one more:  last I saw T never returns memory to \"the system\", but\n> O does - indeed, the parent thread here was all about _enormous_ time\n> waste due to that in O ;-)  That's not free either, but doesn't affect\n> O's fast paths.\n\n\n\n"
         }
     ],
+    "brandon_ford@acme.com":[
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":45,
+            "content":"Subject: [Bug-Report] This application is a disaster\nMessage-ID: <BCDF1C0E-783B-4C4D-83E3-AF5D9F8B89CD@acme.com>\n\nThis thing you call an app is consistently crashing! I can't believe you released this. When will you get this sorted out? I expect better!"
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":60,
+            "content":"Fix for crash issue - about bloody time"
+        },
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":30,
+            "content":"Subject: [Feedback] Are you guys even trying?\nMessage-ID: <BD674AC9-8A6E-4CE5-A12C-587CABC51C5A@acme.com>\n\nCan't you guys get anything right? The new patch is even worse. The user interface is atrocious. Get it fixed ASAP."
+        },
+        {
+            "type":"git_log",
+            "time":1559362437,
+            "time_spent":70,
+            "content":"UI changes - hopefully less horrible this time"
+        },
+        {
+            "type":"email",
+            "time":1559362437,
+            "time_spent":35,
+            "content":"Subject: [Final warning] This is ridiculous\nMessage-ID: <D2636FB4-7101-4E7A-9BB1-1E017BA2B396@acme.com>\n\nDo I need to do everything myself? Your bug fixes are pathetic. I am utterly disappointed in this entire team. Get it together, or I'll find someone who can."
+        }
+    ],
     "pablogsal@gmail.com":[
         {
             "type":"email",
@@ -1427,38 +1459,6 @@
             "time":1559362437,
             "time_spent":116,
             "content":"    bpo-29984: Improve 'heapq' test coverage (GH-992)"
-        }
-    ],
-    "rude_user@acme.com":[
-        {
-            "type":"email",
-            "time":1559362437,
-            "time_spent":45,
-            "content":"Subject: [Bug-Report] This application is a disaster\nMessage-ID: <BCDF1C0E-783B-4C4D-83E3-AF5D9F8B89CD@acme.com>\n\nThis thing you call an app is consistently crashing! I can't believe you released this. When will you get this sorted out? I expect better!"
-        },
-        {
-            "type":"git_log",
-            "time":1559362437,
-            "time_spent":60,
-            "content":"Fix for crash issue - about bloody time"
-        },
-        {
-            "type":"email",
-            "time":1559362437,
-            "time_spent":30,
-            "content":"Subject: [Feedback] Are you guys even trying?\nMessage-ID: <BD674AC9-8A6E-4CE5-A12C-587CABC51C5A@acme.com>\n\nCan't you guys get anything right? The new patch is even worse. The user interface is atrocious. Get it fixed ASAP."
-        },
-        {
-            "type":"git_log",
-            "time":1559362437,
-            "time_spent":70,
-            "content":"UI changes - hopefully less horrible this time"
-        },
-        {
-            "type":"email",
-            "time":1559362437,
-            "time_spent":35,
-            "content":"Subject: [Final warning] This is ridiculous\nMessage-ID: <D2636FB4-7101-4E7A-9BB1-1E017BA2B396@acme.com>\n\nDo I need to do everything myself? Your bug fixes are pathetic. I am utterly disappointed in this entire team. Get it together, or I'll find someone who can."
         }
     ],
     "emily@pythonista.org":[
