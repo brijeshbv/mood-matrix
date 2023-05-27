@@ -84,8 +84,8 @@ export default function Summary() {
   <TableBody>
     {data.data.map((user: any) => (
       <TableRow key={user.email}>
-        <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/summary/${user.email}`}>{user.name}</Link></TableCell>
-        <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/summary/${user.email}`}>{user.email}</Link></TableCell>
+        <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/dashboard/${user.email}`}>{user.name}</Link></TableCell>
+        <TableCell className="text-blue-500 hover:text-blue-700 hover:underline"><Link href={`/dashboard/${user.email}`}>{user.email}</Link></TableCell>
         <TableCell>{user.rating}</TableCell>
         </TableRow>
     ))}
