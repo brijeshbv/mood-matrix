@@ -11,8 +11,6 @@ import {
 } from "@/components/ui/table"
 
 import { LoadingSpinner } from '@/components/ui/spinner';
-import { Button } from "@/components/ui/button"
-import Link from 'next/link';
 
 const fetcher = (url: string) => fetch(url, {
   method: 'GET'
