@@ -130,7 +130,7 @@ function RatingChart(rating: string): JSX.Element {
   for (const type of ratingTypes) {
     const regex = new RegExp(`${type.toUpperCase()}:(\\d+)`, 'i');
     const match = rating.match(regex);
-    console.log({ rating, match })
+    // console.log({ rating, match })
     // console.log(match)
     if (match) {
       defaultRatings[type as keyof Ratings] = Number(match[1]);
@@ -138,18 +138,20 @@ function RatingChart(rating: string): JSX.Element {
   }
 
 
+
+
   const total = defaultRatings.positive + defaultRatings.neutral + defaultRatings.negative
   const positiveToHundred = Math.max(defaultRatings.positive / total * 100, 3);
   const neutralToHundred = Math.max(defaultRatings.neutral / total * 100, 3);
   const negativeToHundred = Math.max(defaultRatings.negative / total * 100, 3);
 
-
+  // console.log({ positiveToHundred, neutralToHundred, negativeToHundred })
 
   return (
     <>
-      <Progress className="w-32" value={positiveToHundred} color="emerald-300" />
-      <Progress className="w-32" value={neutralToHundred} color="yellow-300" />
-      <Progress className="w-32"value={negativeToHundred} color="red-300" />
+      <Progress key={"emerald-300"} className="w-32" value={positiveToHundred} color="emerald-300" />
+      <Progress key={"yellow-300"} className="w-32" value={neutralToHundred} color="yellow-300" />
+      <Progress key={"red-300"} className="w-32" value={negativeToHundred} color="red-300" />
     </>
   )
 }
