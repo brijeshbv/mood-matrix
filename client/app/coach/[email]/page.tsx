@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { useState } from 'react';
 import useSWR from 'swr';
 import {
   Table,
@@ -13,7 +14,6 @@ import {
 
 import { LoadingSpinner } from '@/components/ui/spinner';
 import { Button } from "@/components/ui/button"
-import Link from 'next/link';
 import { MessageSquare } from 'lucide-react'
 
 const fetcher = (url: string) => fetch(url, {
@@ -38,6 +38,13 @@ export default function Page({ params }: { params: { email: string } }) {
     return content.slice(0, maxLength - 3) + '...';
   }
 
+  const [discordButtonClicked, setDiscordButtonClicked] = useState(false)
+  const discordButtonHandler = async () => {
+    fetch(`http://127.0.0.1:5000/api/v1/coach_agent/${decodedString}`)
+
+    setDiscordButtonClicked(true)
+  }
+
   return (
     <div className="container flex flex-col gap-2 p-4">
       <h1 className="text-center pb-4 text-serif text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
@@ -46,9 +53,12 @@ export default function Page({ params }: { params: { email: string } }) {
       <div className='mx-auto justify-center text-center'>
         <h2 className='text-left font-bold font-serif'>Employee Coaching Overview</h2>
         <p className='text-sm text-justify max-w-md'>{data.output_text}</p>
-        <Button className="bg-[#6e85d3]" asChild>
-          <Link href={`http://127.0.0.1:5000/api/v1/coach_agent/${decodedString}`} className='mt-2'><MessageSquare className="mr-1" />Coach on Discord</Link>
-        </Button>
+
+        {!discordButtonClicked && 
+          <Button className="bg-[#6e85d3]" onClick={discordButtonHandler}>
+            <MessageSquare className="mt-2 mr-1" />Coach on Discord
+          </Button>
+        }
       </div>
       <h2 className='text-left font-bold font-serif'>Employee Coaching Strategies:</h2>
       <Table>
