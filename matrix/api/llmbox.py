@@ -20,20 +20,88 @@ cache = redis.StrictRedis(host=os.environ['REDIS_HOST'],port=6380,db=0,password=
 
 
 def get_sentiment(items):
-    prompt = """
-        Summarise the total count of each sentiment below and their percentage weight.
+    prompt = """Summarise the total count of each sentiment below and their percentage weight.
 
-        {text}
+{text}
 
-        Sentiment:  """
+Sentiment:"""
     prompt_template = PromptTemplate(input_variables=["text"], template=prompt)
 
-    combined_prompt = """
-            Summarise the total count of each sentiment below and their percentage weight.  Don't include anything else. If there is just one sentiment, give it 100% weight. Keep max 150 chars in output.
+    combined_prompt = """You are a counter agent AI. Your job is to count the number of positive, negative and neutral sentiments in the text below.
 
-            {text}
+The counted sentiments will be classified with positive, negative and neutral. Where positive is POSITIVE, negative is NEGATIVE and neutral is NEUTRAL.
 
-            Summary of Sentiment:  """
+DO NOT include a percentage weight.
+
+==========
+TEXT:
+----------
+" Negative\nTotal Count: 3\nPercentage Weight: 100%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%",
+" Negative\nTotal Count: 3\nPercentage Weight: 100%",
+" Positive\n        Total Count: 10\n        Percentage Weight: 50%\n\n        Sentiment: Negative\n        Total Count: 10\n        Percentage Weight: 50%",
+" Negative\nTotal Count: 1\nPercentage Weight: 100%"
+----------
+==========
+Summary of Sentiment:
+POSITIVE: 11
+NEGATIVE: 10
+NEUTRAL: 0
+
+==========
+TEXT:
+----------
+" Positive\n        Count: 2\n        Percentage Weight: 40%\n\n        Sentiment: Neutral\n        Count: 4\n        Percentage Weight: 80%",
+" Positive\n        Total Count: 2\n        Percentage Weight: 100%",
+" Neutral\n        Total Count: 1\n        Percentage Weight: 100%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%",
+" Positive\n        Total Count: 10\n        Percentage Weight: 50%\n\n        Sentiment: Negative\n        Total Count: 10\n        Percentage Weight: 50%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%",
+" Neutral\nTotal Count: 1\nPercentage Weight: 100%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%",
+" Positive - 5, 100%",
+" Positive\n        Total Count: 10\n        Percentage Weight: 50%\n\n        Sentiment: Negative\n        Total Count: 10\n        Percentage Weight: 50%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%"
+----------
+==========
+Summary of Sentiment:
+POSITIVE: 13
+NEGATIVE: 10
+NEUTRAL: 2
+
+==========
+TEXT:
+----------
+" Positive\n        Count: 2\n        Percentage Weight: 40%\n\nSentiment: Neutral\nCount: 2\nPercentage Weight: 40%\n\nSentiment: Negative\nCount: 1\nPercentage Weight: 20%",
+" Positive\n        Count: 1\n        Percentage Weight: 100%\n\n        Sentiment: Negative\n        Count: 0\n        Percentage Weight: 0%",
+" Positive\n        Total Count: 1\n        Percentage Weight: 100%"
+----------
+==========
+Summary of Sentiment:
+POSITIVE: 2
+NEGATIVE: 1
+NEUTRAL: 2
+
+==========
+TEXT:
+----------
+" Positive\n        Count: 4\n        Percentage Weight: 36.4%\n\n        Sentiment: Neutral\n        Count: 8\n        Percentage Weight: 72.7%\n\n        Sentiment: Negative\n        Count: 1\n        Percentage Weight: 9.1%",
+" Positive\n        Total Count: 2\n        Percentage Weight: 100%"
+----------
+==========
+Summary of Sentiment:
+POSITIVE: 4
+NEGATIVE: 1
+NEUTRAL: 8
+
+==========
+TEXT:
+----------
+{text}
+----------
+========== Generate a "POSTIVE", "NEGATIVE", "NEUTRAL"
+Summary of Sentiment:"""
     combined_prompt_template = PromptTemplate(input_variables=["text"], template=combined_prompt)
 
     md5=hashlib.md5()
@@ -64,7 +132,7 @@ def get_coaches(items):
 
         {text}
 
-        Coaching Points:  """
+        Coaching Points:"""
 
     # filtered items and prompt are used as cache key
     md5 = hashlib.md5()
@@ -104,7 +172,7 @@ def get_summaries(items):
 
             {text}
 
-            Summary of Contributions:  """
+            Summary of Contributions:"""
 
     md5 = hashlib.md5()
     md5.update(json.dumps(items, sort_keys=True).encode())
