@@ -119,7 +119,7 @@ function RatingChart(rating: string): JSX.Element {
     neutral: 0,
   };
 
-  // console.log("rating: ", rating)
+  console.log("rating: ", rating)
   if (!rating) {
     return <>N/A</>
   }
@@ -138,18 +138,20 @@ function RatingChart(rating: string): JSX.Element {
   }
 
 
+
+
   const total = defaultRatings.positive + defaultRatings.neutral + defaultRatings.negative
   const positiveToHundred = Math.max(defaultRatings.positive / total * 100, 3);
   const neutralToHundred = Math.max(defaultRatings.neutral / total * 100, 3);
   const negativeToHundred = Math.max(defaultRatings.negative / total * 100, 3);
 
-
+  console.log({ positiveToHundred, neutralToHundred, negativeToHundred })
 
   return (
     <>
-      <Progress className="w-32" value={positiveToHundred} color="emerald-300" />
-      <Progress className="w-32" value={neutralToHundred} color="yellow-300" />
-      <Progress className="w-32"value={negativeToHundred} color="red-300" />
+      <Progress key={"emerald-300"} className="w-32" value={positiveToHundred} color="emerald-300" />
+      <Progress key={"yellow-300"} className="w-32" value={neutralToHundred} color="yellow-300" />
+      <Progress key={"red-300"} className="w-32" value={negativeToHundred} color="red-300" />
     </>
   )
 }
