@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import useSWR from 'swr';
+import { LoadingSpinner } from "@/components/ui/spinner";
 
 const fetcher = (url: string) => fetch(url, {
   method: 'GET',
@@ -22,11 +23,11 @@ const fetcher = (url: string) => fetch(url, {
 
 export default function Summary() {
 
-  const {data, error } = useSWR(
+  const {data, error, isLoading } = useSWR(
  'http://127.0.0.1:5000/api/v1/users_rating', fetcher)
 
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (isLoading) return <LoadingSpinner />
 
   return (
 
