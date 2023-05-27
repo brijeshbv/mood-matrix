@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { email: string } }) {
         <TableBody>
           {data.items.map((item: any, index: number) => (
             <TableRow key={index}>
-              <TableCell>{item.type}</TableCell>
+              <TableCell>{item.type.charAt(0).toUpperCase() + item.type.slice(1).replace(/_/g, " ")}</TableCell>
               <TableCell>{new Date(item.time * 1000).toLocaleDateString(undefined, {
                 year: 'numeric',
                 month: 'short',
