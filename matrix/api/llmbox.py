@@ -174,9 +174,15 @@ def get_summaries(items):
 
             Summary of Contributions:"""
 
+    prompt_count = """ The following Python dictionary {count} has the key representing the task and the value representing the number of times that type of task was done by the contributer.
+                First summarise the following text {text}. 
+                Then concatenate to this summary a sentence that uses the Python dictionary data to state how many of each task the main contributer has done. 
+                For the task of [n] counts, when the task is an email say that the contributer sent [n] emails and when the task is a git log say that the contributer uploaded [n] git commits."
+                """
+
     md5 = hashlib.md5()
     md5.update(json.dumps(items, sort_keys=True).encode())
-    md5.update(json.dumps(prompt).encode())
+    md5.update(json.dumps([prompt, prompt_count]).encode())
     cachekey = f"summary.{md5.hexdigest()}"
     cacheval = cache.get(cachekey)
     if cacheval:
@@ -189,8 +195,14 @@ def get_summaries(items):
 
     chain = load_summarize_chain(llm, chain_type="map_reduce", return_intermediate_steps=True,
                                  map_prompt=prompt_template, combine_prompt=prompt_template)
-    resp = chain({"input_documents": docs},
-                     return_only_outputs=True)  # .get('output_text').strip()#llm_chain(item["content"])["text"].strip().lower()
+    
+    output_summary = chain({"input_documents": docs}, return_only_outputs=True)
+    types_count = {item['type']: (sum(1 for v in items if v['type'] == item['type'])) for item in items}
+    
+    prompt_template = PromptTemplate(input_variables=["count", "text"], template=prompt_count)
+    chain = LLMChain(llm=llm, prompt=prompt_template)
+    resp = chain({"text": output_summary.get('output_text'), "count": str(types_count)}, return_only_outputs=True)
+
     resp["items"] = items
     cache.set(cachekey, json.dumps(resp, sort_keys=True))
     return resp
