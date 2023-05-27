@@ -1,11 +1,6 @@
 "use client"
 import useSWR from 'swr';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { ArrowLeftRight, User } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -15,9 +10,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { userAgent } from 'next/server';
 
 import { LoadingSpinner } from '@/components/ui/spinner';
+import { Button } from "@/components/ui/button"
+import Link from 'next/link';
 
 const fetcher = (url: string) => fetch(url, {
   method: 'GET'
@@ -29,7 +25,6 @@ export default function Page({ params }: { params: { email: string } }) {
   const {data, error, isLoading } = useSWR(
     `http://127.0.0.1:5000/api/v1/summary/${decodedString}`, fetcher)
 
-  console.log(data)
   if(error) return <div className='text-destructive'>Failed to load.</div>
 
   if (isLoading) return <LoadingSpinner />
@@ -39,9 +34,12 @@ export default function Page({ params }: { params: { email: string } }) {
       <h1 className="text-center pb-4 text-serif text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
           Summary for {decodeURIComponent(params.email)}
       </h1>
-      <div className='mx-auto '>
+      <div className='mx-auto justify-center text-center'>
         <h2 className='text-left font-bold font-serif'>Overview of recent actions</h2>
         <p className='text-sm text-justify max-w-md'>{data.output_text}</p>
+        <Button asChild>
+          <Link href={`/coach/${decodedString}`} className='mt-2'><User/><ArrowLeftRight/><User/>Coach</Link>
+        </Button>
       </div>
       <h2 className='text-left font-bold font-serif'>All recent actions:</h2>
       <Table>
@@ -57,7 +55,7 @@ export default function Page({ params }: { params: { email: string } }) {
         </TableHeader>
         <TableBody>
           {data.items.map((item: any, index: number) => (
-            <TableRow>
+            <TableRow key={index}>
               <TableCell>{item.type}</TableCell>
               <TableCell>{new Date(item.time * 1000).toLocaleDateString(undefined, {
                 year: 'numeric',
@@ -66,7 +64,7 @@ export default function Page({ params }: { params: { email: string } }) {
               })}</TableCell>
               <TableCell>{item.time_spent} minutes</TableCell>
               <TableCell className='max-w-md'>{item.content}</TableCell>
-              <TableCell className='max-w-md'>{data.intermediate_steps[index]}</TableCell>
+              <TableCell className='max-w-md font-semibold'>{data.intermediate_steps[index]}</TableCell>
             </TableRow>
           ))}
         </TableBody>
