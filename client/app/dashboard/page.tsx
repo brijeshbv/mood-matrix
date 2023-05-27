@@ -46,14 +46,14 @@ export default function Summary() {
         label: 'Organization Sentiment Summary',
         data: [org_summary?.positive, org_summary?.negative, org_summary?.neutral],
         backgroundColor: [
-          'rgba(0, 255, 0, 0.6)',
-          'rgba(255, 0, 0, 0.6)',
-          'rgba(0, 0, 255, 0.6)',
+          'rgba(134, 239, 172, 1)',
+          'rgba(252, 165, 165, 1)',
+          'rgba(147, 197, 253, 1)',
         ],
         borderColor: [
-          'rgba(0, 255, 0, 0.9)',
-          'rgba(255, 0, 0, 0.9)',
-          'rgba(0, 0, 255, 0.9)',
+          'rgba(34, 197, 94, 1)',
+          'rgba(239, 68, 68, 1)',
+          'rgba(59, 130, 246, 1)',
 
         ],
         borderWidth: 1,
