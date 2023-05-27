@@ -50,7 +50,7 @@ export default function Page({ params }: { params: { email: string } }) {
             <TableHead>Type</TableHead>
             <TableHead>Time</TableHead>
             <TableHead>Time Spent</TableHead>
-            <TableHead>Content</TableHead>
+            <TableHead>Summary</TableHead>
             <TableHead>Feedback</TableHead>
           </TableRow>
         </TableHeader>

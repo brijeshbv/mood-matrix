@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.1",
+    "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@tanstack/react-table": "^8.9.1",
     "chart.js": "^3.9.1",

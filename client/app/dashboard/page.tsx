@@ -16,6 +16,7 @@ import useSWR from 'swr';
 import { LoadingSpinner } from "@/components/ui/spinner";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { Progress } from "@/components/ui/progress"
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -137,12 +138,17 @@ function RatingChart(rating: string): JSX.Element {
     }
   }
 
+
+  const total = defaultRatings.positive + defaultRatings.neutral + defaultRatings.negative
+  const positiveToHundred = defaultRatings.positive / total * 100;
+  const neutralToHundred = defaultRatings.neutral / total * 100;
+  const negativeToHundred = defaultRatings.negative / total * 100;
+
   return (
     <>
-      <Star />
-      <div>Positive: {defaultRatings.positive}</div>
-      <div>Negative: {defaultRatings.negative}</div>
-      <div>Neutral: {defaultRatings.neutral}</div>
+      <Progress className="w-32" value={positiveToHundred} color="emerald-300" />
+      <Progress className="w-32" value={neutralToHundred} color="yellow-300" />
+      <Progress className="w-32"value={negativeToHundred} color="red-300" />
     </>
   )
 }
