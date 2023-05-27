@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import { useState } from 'react';
 import useSWR from 'swr';
 import {
   Table,
@@ -38,11 +37,12 @@ export default function Page({ params }: { params: { email: string } }) {
     return content.slice(0, maxLength - 3) + '...';
   }
 
-  const [discordButtonClicked, setDiscordButtonClicked] = useState(false)
-  const discordButtonHandler = async () => {
+  
+  const discordButtonHandler = async (e: any) => {
     fetch(`http://127.0.0.1:5000/api/v1/coach_agent/${decodedString}`)
 
-    setDiscordButtonClicked(true)
+
+    e.preventDefault()
   }
 
   return (
@@ -54,11 +54,14 @@ export default function Page({ params }: { params: { email: string } }) {
         <h2 className='text-left font-bold font-serif'>Employee Coaching Overview</h2>
         <p className='text-sm text-justify max-w-md'>{data.output_text}</p>
 
-        {!discordButtonClicked && 
+        {/* {!discordButtonClicked && 
           <Button className="bg-[#6e85d3]" onClick={discordButtonHandler}>
             <MessageSquare className="mt-2 mr-1" />Coach on Discord
           </Button>
-        }
+        } */}
+        <Button className="bg-[#6e85d3]" onClick={discordButtonHandler}>
+            <MessageSquare className="mt-2 mr-1" />Coach on Discord
+          </Button>
       </div>
       <h2 className='text-left font-bold font-serif'>Employee Coaching Strategies:</h2>
       <Table>
