@@ -23,7 +23,6 @@ export default function Page({ params }: { params: { email: string } }) {
   const {data, error, isLoading } = useSWR(
     `http://127.0.0.1:5000/api/v1/coach/${decodedString}`, fetcher)
 
-  console.log(data)
   if(error) return <div className='text-destructive'>Failed to load.</div>
 
   if (isLoading) return <LoadingSpinner />
