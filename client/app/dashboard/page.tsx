@@ -149,9 +149,9 @@ function RatingChart(rating: string): JSX.Element {
 
   return (
     <>
-      <Progress key={"emerald-300"} className="w-32" value={positiveToHundred} color="emerald-300" />
-      <Progress key={"yellow-300"} className="w-32" value={neutralToHundred} color="yellow-300" />
-      <Progress key={"red-300"} className="w-32" value={negativeToHundred} color="red-300" />
+      <Progress key={"b-emerald-300"} className="w-32" value={positiveToHundred} color="bg-emerald-300" />
+      <Progress key={"yellow-300"} className="w-32" value={neutralToHundred} color="bg-yellow-300" />
+      <Progress key={"red-300"} className="w-32" value={negativeToHundred} color="bg-red-300" />
     </>
   )
 }
