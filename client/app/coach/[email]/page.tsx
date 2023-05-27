@@ -27,6 +27,14 @@ export default function Page({ params }: { params: { email: string } }) {
 
   if (isLoading) return <LoadingSpinner />
 
+  function truncateContent(content: string, maxLength: number): string {
+    if (content.length <= maxLength) {
+      return content;
+    }
+  
+    return content.slice(0, maxLength - 3) + '...';
+  }
+
   return (
     <div className="container flex flex-col gap-2 p-4">
       <h1 className="text-center pb-4 text-serif text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
@@ -41,9 +49,9 @@ export default function Page({ params }: { params: { email: string } }) {
         <TableCaption>A list of coaching strategies for {decodeURIComponent(params.email)}.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Type</TableHead>
+            {/* <TableHead>Type</TableHead>
             <TableHead>Time</TableHead>
-            <TableHead>Time Spent</TableHead>
+            <TableHead>Time Spent</TableHead> */}
             <TableHead>Content</TableHead>
             <TableHead>Feedback</TableHead>
           </TableRow>
@@ -51,14 +59,14 @@ export default function Page({ params }: { params: { email: string } }) {
         <TableBody>
           {data.items.map((item: any, index: number) => (
             <TableRow key={index}>
-              <TableCell>{item.type.charAt(0).toUpperCase() + item.type.slice(1).replace(/_/g, " ")}</TableCell>
+              {/* <TableCell>{item.type.charAt(0).toUpperCase() + item.type.slice(1).replace(/_/g, " ")}</TableCell>
               <TableCell>{new Date(item.time * 1000).toLocaleDateString(undefined, {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',
               })}</TableCell>
-              <TableCell>{item.time_spent} minutes</TableCell>
-              <TableCell className='max-w-md'>{item.content}</TableCell>
+              <TableCell>{item.time_spent} minutes</TableCell> */}
+              <TableCell className='max-w-md'>{truncateContent(item.content, 200)}</TableCell>
               <TableCell className='max-w-md font-semibold'>{data.intermediate_steps[index]}</TableCell>
             </TableRow>
           ))}
