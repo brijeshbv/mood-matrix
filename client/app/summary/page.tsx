@@ -26,7 +26,7 @@ export default function Summary() {
   const {data, error, isLoading } = useSWR(
  'http://127.0.0.1:5000/api/v1/users_rating', fetcher)
 
-  if (error) return <div>failed to load</div>
+  if(error) return <div className='text-destructive'>Failed to load.</div>
   if (isLoading) return <LoadingSpinner />
 
   return (
