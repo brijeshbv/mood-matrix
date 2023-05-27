@@ -119,7 +119,7 @@ function RatingChart(rating: string): JSX.Element {
     neutral: 0,
   };
 
-  console.log("rating: ", rating)
+  // console.log("rating: ", rating)
   if (!rating) {
     return <>N/A</>
   }
@@ -130,7 +130,7 @@ function RatingChart(rating: string): JSX.Element {
   for (const type of ratingTypes) {
     const regex = new RegExp(`${type.toUpperCase()}:(\\d+)`, 'i');
     const match = rating.match(regex);
-    console.log({ rating, match })
+    // console.log({ rating, match })
     // console.log(match)
     if (match) {
       defaultRatings[type as keyof Ratings] = Number(match[1]);
@@ -145,7 +145,7 @@ function RatingChart(rating: string): JSX.Element {
   const neutralToHundred = Math.max(defaultRatings.neutral / total * 100, 3);
   const negativeToHundred = Math.max(defaultRatings.negative / total * 100, 3);
 
-  console.log({ positiveToHundred, neutralToHundred, negativeToHundred })
+  // console.log({ positiveToHundred, neutralToHundred, negativeToHundred })
 
   return (
     <>
