@@ -140,9 +140,11 @@ function RatingChart(rating: string): JSX.Element {
 
 
   const total = defaultRatings.positive + defaultRatings.neutral + defaultRatings.negative
-  const positiveToHundred = defaultRatings.positive / total * 100;
-  const neutralToHundred = defaultRatings.neutral / total * 100;
-  const negativeToHundred = defaultRatings.negative / total * 100;
+  const positiveToHundred = Math.max(defaultRatings.positive / total * 100, 3);
+  const neutralToHundred = Math.max(defaultRatings.neutral / total * 100, 3);
+  const negativeToHundred = Math.max(defaultRatings.negative / total * 100, 3);
+
+
 
   return (
     <>
