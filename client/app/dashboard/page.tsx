@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import React from "react"
 import { Star } from "lucide-react"
 
 import {
@@ -15,6 +16,7 @@ import useSWR from 'swr';
 import { LoadingSpinner } from "@/components/ui/spinner";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { Progress } from "@/components/ui/progress"
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -69,6 +71,7 @@ export default function Summary() {
         , width: '100vh', height: '60vh'
       }}>
 
+
         <h1 style={{ fontSize: '2rem' }}>
           {'Organization level Sentiment Analysis'}
         </h1>
@@ -119,7 +122,7 @@ function RatingChart(rating: string): JSX.Element {
 
   // console.log("rating: ", rating)
   if (!rating) {
-    return <>NA</>
+    return <>N/A</>
   }
 
   rating = rating.replace(/\s/g, '');
@@ -135,12 +138,19 @@ function RatingChart(rating: string): JSX.Element {
     }
   }
 
+
+  const total = defaultRatings.positive + defaultRatings.neutral + defaultRatings.negative
+  const positiveToHundred = Math.max(defaultRatings.positive / total * 100, 3);
+  const neutralToHundred = Math.max(defaultRatings.neutral / total * 100, 3);
+  const negativeToHundred = Math.max(defaultRatings.negative / total * 100, 3);
+
+
+
   return (
     <>
-      <Star />
-      <div>Positive: {defaultRatings.positive}</div>
-      <div>Negative: {defaultRatings.negative}</div>
-      <div>Neutral: {defaultRatings.neutral}</div>
+      <Progress className="w-32" value={positiveToHundred} color="emerald-300" />
+      <Progress className="w-32" value={neutralToHundred} color="yellow-300" />
+      <Progress className="w-32"value={negativeToHundred} color="red-300" />
     </>
   )
 }
