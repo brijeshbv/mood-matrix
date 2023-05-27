@@ -202,7 +202,7 @@ def get_summaries(items):
     prompt_template = PromptTemplate(input_variables=["count", "text"], template=prompt_count)
     chain = LLMChain(llm=llm, prompt=prompt_template)
     resp = chain({"text": output_summary.get('output_text'), "count": str(types_count)}, return_only_outputs=True)
-
+    resp["intermediate_steps"] = output_summary.get("intermediate_steps")
     resp["items"] = items
     cache.set(cachekey, json.dumps(resp, sort_keys=True))
     return resp

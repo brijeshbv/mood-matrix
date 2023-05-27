@@ -45,7 +45,7 @@ export default function Page({ params }: { params: { email: string } }) {
       </h1>
       <div className='mx-auto justify-center text-center'>
         <h2 className='text-left font-bold font-serif'>Overview of recent actions</h2>
-        <p className='text-sm text-justify max-w-md'>{data.output_text}</p>
+        <p className='text-sm text-justify max-w-md'>{data.text}</p>
         <Button asChild>
           <Link href={`/coach/${decodedString}`} className='mt-2'><User/><ArrowLeftRight/><User/>Coach</Link>
         </Button>
