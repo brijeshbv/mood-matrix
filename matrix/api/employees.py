@@ -2,8 +2,9 @@ from flask import Blueprint, request, jsonify
 from matrix.db import get_users
 from utils.combined_parser import prepare_user_data
 from matrix.api.utils import expect
-from datetime import datetime
+import datetime
 import json
+import itertools
 import matrix.api.llmbox
 from flask_cors import CORS, cross_origin
 import re
@@ -20,7 +21,7 @@ def filter_dicts_by_date(data, year=None, month=None, day=None):
         if not time_field:
             return False
 
-        dt = datetime.fromtimestamp(time_field)
+        dt = datetime.datetime.fromtimestamp(time_field)
         # print(dt)
         return (year is None or dt.year == int(year)) and (month is None or dt.month == int(month)) and (
                 day is None or dt.day == int(day))
@@ -80,6 +81,27 @@ def coach_user(email, year, month, day):
     if len(commits) > 0:
         return matrix.api.llmbox.coach_user(email, commits)
     return "No entries"
+
+@mood_mtx_api_v1.route('/sentiment_overtime/<email>', methods=['GET'],  defaults={'year':datetime.datetime.today().year, 'month': datetime.datetime.today().month, 'day': datetime.datetime.today().day})
+@mood_mtx_api_v1.route('/sentiment_overtime/<email>/<year>', methods=['GET'],  defaults={ 'month': datetime.datetime.today().month, 'day': datetime.datetime.today().day})
+@mood_mtx_api_v1.route('/sentiment_overtime/<email>/<year>/<month>', methods=['GET'],  defaults={ 'day': datetime.datetime.today().day})
+@mood_mtx_api_v1.route('/sentiment_overtime/<email>/<year>/<month>/<day>', methods=['GET'])
+def get_sentiment_overtime(email, year, month, day):
+    gitcommit = json.load(open("json_data/combined_data.json"))
+    current = datetime.date(int(year),int(month),int(day))   #datetime.datetime.today()
+    dates = [current - datetime.timedelta(days = x) for x in range(70)]  #go for 70 days
+    sentiments = [] #tuples(POSITIVE, NEGATIVE, NEUTRAL)
+    for date in dates:
+        commits = filter_dicts_by_date(gitcommit[email], date.year, date.month, date.day)
+        if len(commits) > 0:
+            today = matrix.api.llmbox.get_sentiment(commits).get('output_text')
+            today = [[int(j) for j in i.split() if j.isdigit()] for i in today.split('\n')[1:]]
+            today = list(itertools.chain(*today))
+            print(today)
+            sentiments.append(today)
+        else:
+            sentiments.append([0,0,0])
+    return sentiments
 
 
 @mood_mtx_api_v1.route('/raw_data', methods=['GET'])
